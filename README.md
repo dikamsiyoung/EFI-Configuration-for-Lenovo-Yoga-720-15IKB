@@ -23,7 +23,7 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB, i7-7
 - GPU: Intel HD630 (Integrated GPU)
 - RAM: 16GB DDR4 (Stock)
 - Internal Display: 4K UHD @60Hz with Touchscreen
-- SSD: WD_BLACK SN720 NVMe 1TB SSD (Replaced Stock PM981 PCIe NVMe SSD)
+- Storage: WD_BLACK SN750 NVMe 1TB SSD (Replaced Stock PM981 PCIe NVMe SSD)
 - Audio: Realtek ALC236
 - WLAN + Bluetooth: Intel Dual Band Wireless-AC 8265 (Stock)
 - Touchpad: Elantech
