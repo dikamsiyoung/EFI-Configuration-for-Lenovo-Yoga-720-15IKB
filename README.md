@@ -53,7 +53,7 @@ Knowledge in this section will help you debug issues quickly and potentially pre
 - **How to run downloaded apps and commands in macOS**: Right click the file and select `Open`.
 
 ## Making the USB Installer
-*Requires a 16GB+ USB 2.0 (or higher) device.*
+*Requires a 16GB+ USB 2.0 (or higher) storage device.*
 
 You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), or [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
 I recommend using a real Mac or a virtual machine to create the installer in order to follow conveniently with this guide. 
