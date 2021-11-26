@@ -42,6 +42,8 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB, i7-7
 # Installation
 If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
+`Note` All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
+
 ## Making the USB Installer
 *Requires 16GB+ USB 2.0 or higher*
 
@@ -58,6 +60,8 @@ Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configur
 
 ### SMBIOS
 You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo`. Select the closest MacBook version to your processor from the list at the bottom. You can set your ROM now if you have the Mac Address of your Wi-Fi module. If you don't have it, you can find it [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom). This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
+
+After setting your SMBIOS, while still in OpenCore Configurator, head over to `Kernel` and uncheck `CustomSMBIOSGUID`.
 
 ### Wi-Fi and Bluetooth Kext
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
@@ -100,7 +104,19 @@ Now, you have to move your configured EFI folder from the USB installer to your 
 At this point, your system is now bootable with the need for the USB installer. You now have a 90% working Hackintosh and quite frankly could go on without the next few steps.
 
 ## Remaining 9.99% Post-Installation
-Great choice! Why not since you've already come all this way. All that is left is to get Touchscreen working, perfect Power Management and install 3rd party applications to enhance the Audio, Touchpad and Thermal Throttling.
+Great choice! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling.
+
+### Enhanced Power Management
+Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
+
+`Warning` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software!  
+
+`Disclaimer!` I am not responsible for any damages to your system, just as the original authors were not when my system froze.  
+If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again
+
+Unfortunately, Lenovo has sealed this feature away. Luckily, this [guide](https://www.reddit.com/r/hackintosh/comments/hz2rtm/cfg_lockunlocking_alternative_method/) can help you get started. Use this version of [RU](https://ruexe.blogspot.com/2019/11/ru-5240370-beta.html) as other versions may not work with your keyboard. 
+
+If all goes well, you 
 
 
 
