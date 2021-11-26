@@ -2,7 +2,7 @@
 <img width="1920" alt="Screen Shot 2021-11-25 at 12 24 50 PM" src="https://user-images.githubusercontent.com/47384524/143482754-b3e5c08f-8826-4286-94fb-a81e5b2f0211.png">
 
 # Introduction
-This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB, i7-7700HQ, 4K laptop, designed in order to run macOS Big Sur 11.5.2 and above versions.
+This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It has been configured to run optimall on macOS Big Sur 11.5.2 and above versions.
 
 ### Hardware Configuration
 | | |
@@ -32,8 +32,8 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB, i7-7
 | ✅ | Speakers and Headphone jack (enhanced with Boom3D) |
 | ✅ | Built-in Camera and Microphone |
 | ✅ | Wi-Fi and Bluetooth |
-| ✅ | Hotkeys (Brightness, Volume and Fn Keys) |
-| ✅ | iServices (iMessage, FaceTime, App Store) |
+| ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
+| ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ✅ | Continuity and HandOff |
 | 🟨 | AirDrop |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
@@ -45,16 +45,16 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 `Note` All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
 ## Making the USB Installer
-*Requires 16GB+ USB 2.0 or higher*
+*Requires a 16GB+ USB 2.0 (or higher) device.*
 
-You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
-I recommend using a real Mac or virtual machine to create the installer in order to follow conveniently with the guide. 
+You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), or [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
+I recommend using a real Mac or a virtual machine to create the installer in order to follow conveniently with this guide. 
 
-At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac
+At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac.
 
 ### Configuring EFI
 
-Clone this repository, unzip the file and copy the EFI folder your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to set before you are ready for installation.  
+Clone this repository, unzip the file and copy the EFI folder your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation.  
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`.  
 
@@ -66,7 +66,7 @@ After setting your SMBIOS, while still in OpenCore Configurator, head over to `K
 ### Wi-Fi and Bluetooth Kext
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
 
-However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
+However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
 - `BrcmBluetoothInjector.kext`  
 - `BrcmFirmwareData.kext`  
@@ -92,8 +92,9 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 Now you are ready to begin the installation.
 
 ## Installing macOS
-Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation.  
-Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select your the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
+Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation. 
+
+Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
 `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
@@ -103,7 +104,7 @@ If all goes well, you have successfully installed macOS on your machine with mos
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
 
 ### Sleep, Wake, and Hibernation
-These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to the SSD through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
+These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
 ```
 sudo pmset -a hibernatemode 0
 sudo rm -f /var/vm/sleepimage
@@ -116,6 +117,7 @@ sudo pmset -b tcpkeepalive 0 (optional)
 ```
 
 At this point, your system is now bootable without the need for your USB installer.  
+
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## Remaining 9.99% Post-Installation
@@ -128,21 +130,25 @@ Most BIOS come with an option to set a feature called CFG-Lock (read more about 
 
 Unfortunately, Lenovo has sealed this feature away. Luckily, this [guide](https://www.reddit.com/r/hackintosh/comments/hz2rtm/cfg_lockunlocking_alternative_method/) can help you get started. Use this version of [RU](https://ruexe.blogspot.com/2019/11/ru-5240370-beta.html) as other versions may not work with your keyboard. 
 
-After you've cleared the CFG-Lock, restart your system and select VerifyMsrE2 from OpenCore boot options instead of booting to macOS to verify that CFG-Lock is indeed unlocked. It should look like [this](https://drive.google.com/file/d/1tItmnh3WlMhKXUy7UtoapPLpg6mEsW-L/view). Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` quirk in `Config.plist -> Kernel`. Restart macOS from the USB drive to see if it works.
+After you've cleared the CFG-Lock, restart your system and select `VerifyMsrE2` from OpenCore boot options instead of booting to macOS to verify that CFG-Lock is indeed unlocked. 
+
+It should look like [this](https://drive.google.com/file/d/1tItmnh3WlMhKXUy7UtoapPLpg6mEsW-L/view). 
+
+Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` quirk in `Config.plist -> Kernel`. Restart macOS from the USB drive to see if it works.
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
 ### Reducing Thermal Throttling (Undervolting)
 Download Intel Power Gadget [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency` and see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
-VoltageShift binary and kext are already present in their respect versions in the zip file, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
+VoltageShift binary and kext are already present in their respective versions in the zip file, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
 
 ```
 sudo chown -R root:wheel VoltageShift.kext
 ```
 Follow the guide provided in the VoltageShift link above to test your settings and build a launch daemon that starts at log-in.
 
-A good starting voltage for this machine <CPU> <GPU> <CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -90mV (GPU) until your system becomes stable. Use this code to create a launch daemon with your desired voltage, turbo-boost enabled and PL1 and PL2 set to 45 and 60 Watts respectively:
+A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -90mV (GPU) until your system becomes stable. Use this code to create a launch daemon with your desired voltage, turbo-boost enabled, and PL1 and PL2 set to 45 and 60 Watts respectively:
 
 ```
 ./voltageshift removelaunchd
@@ -152,13 +158,13 @@ sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
 ### Enabling Touchscreen (DSDT Patching)
-In order to enable touchscreen, you have to patch your System DSDT. Refer to this part of the [OpenCore guide](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi).
+In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
   
-Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Replace the 'If ((...)` Statement at the end of the method with:
+Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete the entire `If ((...)` Statement at the end of the method and add this code if it isn't already present:
 ```
 Return (ConcatenateResTemplate (SBFB, SBFI))
 ```
-Save the file as DSDT.aml in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
+Save the file as `DSDT.aml` in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
  
 If all goes well, your touchscreen is now working. Repeat the immediate previous step on your system EFI.
 
