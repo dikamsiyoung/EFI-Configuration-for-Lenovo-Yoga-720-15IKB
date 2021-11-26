@@ -110,7 +110,9 @@ Plug in the USB installer, restart your computer, and press `F12`. This would br
 `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## Post-Installation
-If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. Now it's time to perform post-installations that requires some data created after macOS was installed. 
+If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
+
+Now it's time to perform post-installations that requires some data created after macOS was installed. 
 
 ### Sleep, Wake, and Hibernation
 These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
