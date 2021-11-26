@@ -174,17 +174,18 @@ The Samsung PM981 (or more precise the Phoenix controller it uses) is known to c
 
 ## Acknoledgements
 - [acidanthera](https://github.com/acidanthera) for providing almost all kexts and drivers
-- [dortania](https://dortania.github.io/OpenCore-Install-Guide/) for an amazing in-depth guide to hackintoshing.
+- [dortania](https://github.com/dortania) for an amazing in-depth guide to hackintoshing.
 - [alexandred](https://github.com/alexandred) for providing VoodooI2C
 - [RehabMan](https://github.com/rehabman) for providing many laptop hotpatches and guides
-- [knnspeed](https://github.com/knnspeed) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
+- [knnspeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
 - [jaromeyer](https://github.com/jaromeyer) for providing detailed installation guides and configurations for the XPS 9570
 - [frbuccoliero](https:/frbuccoliero) for PM981 related testing and extending the guide
 - [mr-prez](https://github.com/mr-prez) for the Native Power Management guide
 - [folivora](https://folivora.ai/) for creating BetterTouchTool
 - [globaldelight](https://www.globaldelight.com/boom/thankyou-download-mac?reseller=googleppc) for creating Boom3D.
 - [sicreative](https://github.com/sicreative/VoltageShift) for creating VoltageShift
+- [openintelwireless](https://github.com/OpenIntelWireless) for providing Intel Wi-Fi and Bluetooth Kexts
 - [wouter](https://www.reddit.com/user/Wouter_001/) for his CFG-Unlock Guide
 - [jiashun zheng](https://jiashun-zheng.medium.com/) for his Yoga 720 Medium Guide
-- [jlp](https://www.tonymacx86.com/members/jlp.123582/) and [thefiredragon](https://www.tonymacx86.com/members/thefiredragon.1412039/) for compiling EFIs for Yoga 720 15-IKB
+- [jlp](https://www.tonymacx86.com/members/jlp.123582/) and [thefiredragon](https://www.tonymacx86.com/members/thefiredragon.1412039/) for compiling [EFI](https://www.tonymacx86.com/threads/yoga-720-try-out-high-sierra-issues.227222/page-22) for Yoga 720 15-IKB
 - Everyone else involved in Hackintosh development
