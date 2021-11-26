@@ -46,11 +46,11 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 
 ## Need to know
 Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
-- [What are Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
-- [What are Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
-- [What are SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
-- How to install and update Kexts with OpenCore Configurator: _Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI_.
-- How to run downloaded apps and commands on macOS: _Right click the file and select `Open`_.
+- [**What are Firmware Drivers**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+- [**What are Kexts**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+- [**What are SSDTs or DSDTs**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
+- **How to install and update Kexts with OpenCore Configurator**: Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
+- **How to run downloaded apps and commands on macOS**: Right click the file and select `Open`.
 
 ## Making the USB Installer
 *Requires a 16GB+ USB 2.0 (or higher) device.*
@@ -148,7 +148,7 @@ If all goes well, your can repeat the immediate previous step for your system's 
 ### Enabling Low Frequency Mode
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
-Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for the Low Frequency Mode to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
+Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for the Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
@@ -197,6 +197,7 @@ The Samsung PM981 (or more precise the Phoenix controller it uses) is known to c
 - [dortania](https://github.com/dortania) for an amazing in-depth guide to hackintoshing.
 - [alexandred](https://github.com/alexandred) for providing VoodooI2C
 - [RehabMan](https://github.com/rehabman) for providing many laptop hotpatches and guides
+- [corpnewt](https://github.com/corpnewt) for providing many many of the scripts required to conveniently install macOS
 - [knnspeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
 - [jaromeyer](https://github.com/jaromeyer) for providing detailed installation guides and configurations for the XPS 9570
 - [frbuccoliero](https:/frbuccoliero) for PM981 related testing and extending the guide
