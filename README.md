@@ -117,6 +117,7 @@ sudo pmset -b tcpkeepalive 0 (optional)
 ```
 
 At this point, your system is now bootable without the need for your USB installer.  
+
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## Remaining 9.99% Post-Installation
