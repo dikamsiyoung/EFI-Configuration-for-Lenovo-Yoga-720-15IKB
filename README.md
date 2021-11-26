@@ -92,8 +92,14 @@ Plug in the USB, restart your computer, and press `F12`. This bring up your Boot
 
 `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
-# Post-Installations
-If all goes well, you have successfully installed macOS on your machine. Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch
+## Post-Installation
+If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point.  
+
+Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
+
+At this point, your system is now bootable with the need for the USB installer. You now have 90% working Hackintosh and quite frankly could go on without the next few steps.
+
+## The Remaining 9.99% Installation
 
 
 
