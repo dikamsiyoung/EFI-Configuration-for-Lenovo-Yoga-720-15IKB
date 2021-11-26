@@ -44,6 +44,14 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 
 `Note` All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
+## Need to know
+Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
+- [What are Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+- [What are Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+- [What are SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
+- How to install and update Kexts with OpenCore Configurator: _Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI_.
+- How to run downloaded apps and commands on macOS: _Right click the file and select `Open`_.
+
 ## Making the USB Installer
 *Requires a 16GB+ USB 2.0 (or higher) device.*
 
@@ -101,10 +109,10 @@ Plug in the USB installer, restart your computer, and press `F12`. This would br
 ## Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point.  
 
-Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
+Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
 
 ### Sleep, Wake, and Hibernation
-These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
+These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
 ```
 sudo pmset -a hibernatemode 0
 sudo rm -f /var/vm/sleepimage
@@ -113,9 +121,8 @@ sudo pmset -a standby 0
 sudo pmset -a autopoweroff 0
 sudo pmset -a powernap 0
 sudo pmset -a proximitywake 0
-sudo pmset -b tcpkeepalive 0 (optional)
+sudo pmset -b tcpkeepalive 0      //Optional
 ```
-
 At this point, your system is now bootable without the need for your USB installer.  
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
@@ -138,10 +145,17 @@ Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` q
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
-### Reducing Thermal Throttling (Undervolting)
-Download Intel Power Gadget [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency` and see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
+### Enabling Low Frequency Mode
+Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
-VoltageShift binary and kext are already present in their respective versions in the zip file, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
+Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for the Low Frequency Mode to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
+
+If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
+
+### Reducing Thermal Throttling (Undervolting)
+Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency` and see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
+
+VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
 
 ```
 sudo chown -R root:wheel VoltageShift.kext
