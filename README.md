@@ -160,7 +160,7 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 ### Enabling Touchscreen (DSDT Patching)
 In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
   
-Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Replace the 'If ((...)` Statement at the end of the method with:
+Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete the entire `If ((...)` Statement at the end of the method and add this code if it isn't already present:
 ```
 Return (ConcatenateResTemplate (SBFB, SBFI))
 ```
