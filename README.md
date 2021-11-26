@@ -200,7 +200,7 @@ The Samsung PM981 (or more precise the Phoenix controller it uses) is known to c
 - [dortania](https://github.com/dortania) for an amazing in-depth guide to hackintoshing.
 - [alexandred](https://github.com/alexandred) for providing VoodooI2C
 - [RehabMan](https://github.com/rehabman) for providing many laptop hotpatches and guides
-- [corpnewt](https://github.com/corpnewt) for providing many many of the scripts required to conveniently install macOS
+- [corpnewt](https://github.com/corpnewt) for providing many of the scripts required to conveniently install macOS
 - [knnspeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
 - [jaromeyer](https://github.com/jaromeyer) for providing detailed installation guides and configurations for the XPS 9570
 - [frbuccoliero](https:/frbuccoliero) for PM981 related testing and extending the guide
