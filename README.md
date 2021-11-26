@@ -104,7 +104,7 @@ If all goes well, you have successfully installed macOS on your machine with mos
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
 
 ### Sleep, Wake, and Hibernation
-These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to the SSD through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
+These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
 ```
 sudo pmset -a hibernatemode 0
 sudo rm -f /var/vm/sleepimage
