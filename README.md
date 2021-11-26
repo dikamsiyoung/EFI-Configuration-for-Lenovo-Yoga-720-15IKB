@@ -158,7 +158,7 @@ sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
 ### Enabling Touchscreen (DSDT Patching)
-In order to enable touchscreen, you have to patch your System DSDT. Refer to this part of the [OpenCore guide](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi).
+In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
   
 Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Replace the 'If ((...)` Statement at the end of the method with:
 ```
