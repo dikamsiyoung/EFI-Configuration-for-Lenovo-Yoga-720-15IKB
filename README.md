@@ -102,12 +102,26 @@ If all goes well, you have successfully installed macOS on your machine with mos
 
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
 
-At this point, your system is now bootable with the need for the USB installer. You now have a 90% working Hackintosh and quite frankly could go on without the next few steps.
+### Sleep, Wake, and Hibernation
+These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to the SSD through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run this code:
+```
+sudo pmset -a hibernatemode 0
+sudo rm -f /var/vm/sleepimage
+sudo mkdir /var/vm/sleepimage
+sudo pmset -a standby 0
+sudo pmset -a autopoweroff 0
+sudo pmset -a powernap 0
+sudo pmset -a proximitywake 0
+sudo pmset -b tcpkeepalive 0 (optional)
+```
+
+At this point, your system is now bootable without the need for your USB installer.  
+You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## Remaining 9.99% Post-Installation
 Great choice! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling.
 
-### Enhancing Power Management
+### Enhancing Power Management (CFG-Unlock)
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
 
 `Warning` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software! If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again
@@ -137,7 +151,7 @@ sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
-### Enable Touchscreen
+### Enabling Touchscreen (DSDT Patching)
 In order to enable touchscreen, you have to patch your System DSDT. Refer to this part of the [OpenCore guide](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi).
   
 Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Replace the 'If ((...)` Statement at the end of the method with:
@@ -150,9 +164,22 @@ If all goes well, your touchscreen is now working. Repeat the immediate previous
 
 Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
 
-### Enhancing Audio
-Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
+### Enhancing Audio (Not much needed here)
+Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to.  
+Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
 
 ## Additional Information
 ### Stock PM981 NVMe SSD 
 The Samsung PM981 (or more precise the Phoenix controller it uses) is known to cause random kernel panics in macOS. Up until now, there was no way to even install macOS on the PM981 and the only option was to replace it with either a SATA or a known working NVMe SSD. However, recently a new set of patches, namely [NVMeFix](https://github.com/acidanthera/NVMeFix) was released. It greatly improves compatibility with non-apple SSDs including the PM981. Thanks to those patches, you can now install macOS, but there is still a chance for kernel panics to occur while booting.
+
+## Acknoledgements
+acidanthera for providing almost all kexts and drivers
+alexandred for providing VoodooI2C
+daliansky for providing the awesome hotpatch guide OC-little and always up-to-date Hackintosh solutions in XiaoMi-Pro-Hackintosh
+RehabMan for providing many laptop hotpatches and guides
+knnspeed for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
+bavariancake and LuletterSoul for providing detailed installation guides and configurations for the XPS 9570
+xxxzc for providing OpenCore support for the XPS 9570
+frbuccoliero for PM981 related testing and extending the guide
+mr-prez for the Native Power Management guide
+Everyone else involved in Hackintosh development
