@@ -84,7 +84,7 @@ However, if you are using a Broadcom module (check this [list](https://www.reddi
 
 to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Intel kexts: `AirportItlwm`, `IntelBluetoothInjector`, and `IntelBluetoothFirmware` from `EFI\OC\Kexts` and `Config.plist`
 
-At this point, your USB Installer should be bootable and almost ready for installation.
+At this point, your USB Installer should be bootable and ready for installation.
 
 ## Configuring BIOS
 With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be.  
