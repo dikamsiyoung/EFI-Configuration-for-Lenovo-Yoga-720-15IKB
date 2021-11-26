@@ -107,7 +107,7 @@ At this point, your system is now bootable with the need for the USB installer. 
 ## Remaining 9.99% Post-Installation
 Great choice! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling.
 
-### Enhanced Power Management
+### Enhancing Power Management
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
 
 `Warning` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software! If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again
@@ -118,7 +118,7 @@ After you've cleared the CFG-Lock, restart your system and select VerifyMsrE2 fr
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
-### Reduce Thermal Throttling (Undervolting)
+### Reducing Thermal Throttling (Undervolting)
 Download Intel Power Gadget [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency` and see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
 VoltageShift binary and kext are already present in their respect versions in the zip file, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
@@ -135,8 +135,24 @@ A good starting voltage for this machine <CPU> <GPU> <CPUCache> is -110 -50 -110
 sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 ```
 
-Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run Geekbench and see how your machine performs against others in its class.
+Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
 ### Enable Touchscreen
 In order to enable touchscreen, you have to patch your System DSDT. Refer to this part of the [OpenCore guide](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi).
   
+Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Replace the 'If ((...)` Statement at the end of the method with:
+```
+Return (ConcatenateResTemplate (SBFB, SBFI))
+```
+Save the file as DSDT.aml in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
+ 
+If all goes well, your touchscreen is now working. Repeat the immediate previous step on your system EFI.
+
+Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
+
+### Enhancing Audio
+Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
+
+## Additional Information
+### Stock PM981 NVMe SSD 
+The Samsung PM981 (or more precise the Phoenix controller it uses) is known to cause random kernel panics in macOS. Up until now, there was no way to even install macOS on the PM981 and the only option was to replace it with either a SATA or a known working NVMe SSD. However, recently a new set of patches, namely [NVMeFix](https://github.com/acidanthera/NVMeFix) was released. It greatly improves compatibility with non-apple SSDs including the PM981. Thanks to those patches, you can now install macOS, but there is still a chance for kernel panics to occur while booting.
