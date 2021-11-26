@@ -197,7 +197,7 @@ Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releas
      Return (ConcatenateResTemplate (SBFB, SBFG))
  }
 ```
-Add this code if it isn't already present:
+Add this code at the end if it isn't already present:
 ```
 Return (ConcatenateResTemplate (SBFB, SBFI))
 ```
