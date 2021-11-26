@@ -107,9 +107,7 @@ Plug in the USB installer, restart your computer, and press `F12`. This would br
 `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## Post-Installation
-If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point.  
-
-Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
+If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. Now it's time to perform post-installations that requires some data created after macOS was installed. 
 
 ### Sleep, Wake, and Hibernation
 These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
@@ -123,6 +121,11 @@ sudo pmset -a powernap 0
 sudo pmset -a proximitywake 0
 sudo pmset -b tcpkeepalive 0      //Optional
 ```
+### USB Mapping
+In direct conjunction with enabling Sleep and Wake, you have to define your USB ports to macOS to have a bug-free sleep cycle. Follow this [part](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html) of the OpenCore guide to map your USB. After following the instructions, `USBmap.kext` would be created. Install the kext to your USB install EFI partition and proceed.
+
+Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch MountEFI and OpenCore Configurator again and mount the EFI partitions of both your USB installer and your system (system partition is usually disk0). Copy Boot and OC from the EFI folder in your USB installer to the EFI folder of your system.
+
 At this point, your system is now bootable without the need for your USB installer.  
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
