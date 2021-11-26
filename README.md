@@ -148,7 +148,7 @@ sudo chown -R root:wheel VoltageShift.kext
 ```
 Follow the guide provided in the VoltageShift link above to test your settings and build a launch daemon that starts at log-in.
 
-A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -90mV (GPU) until your system becomes stable. Use this code to create a launch daemon with your desired voltage, turbo-boost enabled and PL1 and PL2 set to 45 and 60 Watts respectively:
+A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -90mV (GPU) until your system becomes stable. Use this code to create a launch daemon with your desired voltage, turbo-boost enabled, and PL1 and PL2 set to 45 and 60 Watts respectively:
 
 ```
 ./voltageshift removelaunchd
