@@ -42,7 +42,7 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 # Installation
 If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
-`Note` All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
+>  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
 ## Need to know
 Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
@@ -107,7 +107,7 @@ Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installa
 
 Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
-`Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
+> `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
@@ -129,9 +129,9 @@ sudo pmset -b tcpkeepalive 0      //Optional
 ### USB Mapping
 In direct conjunction with enabling Sleep and Wake, you have to define your USB ports to macOS to have a bug-free sleep cycle. Follow this [part](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html) of the OpenCore guide to map your USB. 
 
-After following the instructions, `USBmap.kext` would be created. Install the kext to your USB install EFI partition and proceed.
+After following the instructions, `USBmap.kext` would be created. Install that kext to your USB installer EFI partition and proceed.
 
-`Note` Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
+> `Note` Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
 
