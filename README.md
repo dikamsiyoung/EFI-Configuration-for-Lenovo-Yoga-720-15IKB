@@ -66,7 +66,7 @@ After setting your SMBIOS, while still in OpenCore Configurator, head over to `K
 ### Wi-Fi and Bluetooth Kext
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
 
-However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
+However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
 - `BrcmBluetoothInjector.kext`  
 - `BrcmFirmwareData.kext`  
