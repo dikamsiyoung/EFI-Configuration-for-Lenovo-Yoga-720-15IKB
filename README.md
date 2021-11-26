@@ -164,7 +164,7 @@ Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releas
 ```
 Return (ConcatenateResTemplate (SBFB, SBFI))
 ```
-Save the file as DSDT.aml in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
+Save the file as `DSDT.aml` in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
  
 If all goes well, your touchscreen is now working. Repeat the immediate previous step on your system EFI.
 
