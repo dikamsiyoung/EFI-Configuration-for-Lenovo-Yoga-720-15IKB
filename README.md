@@ -46,11 +46,11 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 
 ## Need to know
 Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
-- [**What are Firmware Drivers**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
-- [**What are Kexts**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
-- [**What are SSDTs or DSDTs**](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
+- [What are Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+- [What are Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+- [What are SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
 - **How to install and update Kexts with OpenCore Configurator**: Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
-- **How to run downloaded apps and commands on macOS**: Right click the file and select `Open`.
+- **How to run downloaded apps and commands in macOS**: Right click the file and select `Open`.
 
 ## Making the USB Installer
 *Requires a 16GB+ USB 2.0 (or higher) device.*
