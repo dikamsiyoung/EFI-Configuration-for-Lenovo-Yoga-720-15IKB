@@ -203,8 +203,7 @@ If all goes well, your touchscreen is now working. Repeat the immediate previous
 Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
 
 ### Enhancing Audio (Not much needed here)
-Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to.  
-Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
+Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
 
 ## Additional Information
 ### Stock PM981 NVMe SSD 
