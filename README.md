@@ -87,8 +87,7 @@ to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Inte
 At this point, your USB Installer should be bootable and ready for installation.
 
 ## Configuring BIOS
-With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be.  
-Restart the computer and press `F2` to boot to your BIOS Configuration. Use the navigation instructions provided on-screen and make sure the features below are properly set.  
+With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. Restart the computer and press `F2` to boot to your BIOS Configuration. Use the navigation instructions provided on-screen and make sure the features below are properly set.  
 |  |  |
 | ------- | ------- |
 | **Secure Boot** | *Disabled* |
