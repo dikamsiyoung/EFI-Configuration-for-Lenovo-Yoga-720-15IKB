@@ -173,13 +173,18 @@ Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm
 The Samsung PM981 (or more precise the Phoenix controller it uses) is known to cause random kernel panics in macOS. Up until now, there was no way to even install macOS on the PM981 and the only option was to replace it with either a SATA or a known working NVMe SSD. However, recently a new set of patches, namely [NVMeFix](https://github.com/acidanthera/NVMeFix) was released. It greatly improves compatibility with non-apple SSDs including the PM981. Thanks to those patches, you can now install macOS, but there is still a chance for kernel panics to occur while booting.
 
 ## Acknoledgements
-acidanthera for providing almost all kexts and drivers
-alexandred for providing VoodooI2C
-daliansky for providing the awesome hotpatch guide OC-little and always up-to-date Hackintosh solutions in XiaoMi-Pro-Hackintosh
-RehabMan for providing many laptop hotpatches and guides
-knnspeed for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
-bavariancake and LuletterSoul for providing detailed installation guides and configurations for the XPS 9570
-xxxzc for providing OpenCore support for the XPS 9570
-frbuccoliero for PM981 related testing and extending the guide
-mr-prez for the Native Power Management guide
-Everyone else involved in Hackintosh development
+- [acidanthera](https://github.com/acidanthera) for providing almost all kexts and drivers
+- [dortania](https://dortania.github.io/OpenCore-Install-Guide/) for an amazing in-depth guide to hackintoshing.
+- [alexandred](https://github.com/alexandred) for providing VoodooI2C
+- [RehabMan](https://github.com/rehabman) for providing many laptop hotpatches and guides
+- [knnspeed](https://github.com/knnspeed) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
+- [jaromeyer](https://github.com/jaromeyer) for providing detailed installation guides and configurations for the XPS 9570
+- [frbuccoliero](https:/frbuccoliero) for PM981 related testing and extending the guide
+- [mr-prez](https://github.com/mr-prez) for the Native Power Management guide
+- [folivora](https://folivora.ai/) for creating BetterTouchTool
+- [globaldelight](https://www.globaldelight.com/boom/thankyou-download-mac?reseller=googleppc) for creating Boom3D.
+- [sicreative](https://github.com/sicreative/VoltageShift) for creating VoltageShift
+- [wouter](https://www.reddit.com/user/Wouter_001/) for his CFG-Unlock Guide
+- [jiashun zheng](https://jiashun-zheng.medium.com/) for his Yoga 720 Medium Guide
+- [jlp](https://www.tonymacx86.com/members/jlp.123582/) and [thefiredragon](https://www.tonymacx86.com/members/thefiredragon.1412039/) for compiling EFIs for Yoga 720 15-IKB
+- Everyone else involved in Hackintosh development
