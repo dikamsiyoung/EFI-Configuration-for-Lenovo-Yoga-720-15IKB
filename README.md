@@ -48,7 +48,7 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 *Requires 16GB+ USB 2.0 or higher*
 
 You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
-I recommend using a real Mac or virtual machine to create the installer in order to follow conveniently with the guide. 
+I recommend using a real Mac or virtual machine to create the installer in order to follow conveniently with this guide. 
 
 At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac
 
