@@ -115,7 +115,7 @@ If all goes well, you have successfully installed macOS on your machine with mos
 Now it's time to perform post-installations that requires some data created after macOS was installed. 
 
 ### Sleep, Wake, and Hibernation
-These features, especially Hibernation seem to be working on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
+These features, especially Hibernation seem to be working out of the box on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
 ```
 sudo pmset -a hibernatemode 0
 sudo rm -f /var/vm/sleepimage
@@ -127,9 +127,13 @@ sudo pmset -a proximitywake 0
 sudo pmset -b tcpkeepalive 0      //Optional
 ```
 ### USB Mapping
-In direct conjunction with enabling Sleep and Wake, you have to define your USB ports to macOS to have a bug-free sleep cycle. Follow this [part](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html) of the OpenCore guide to map your USB. After following the instructions, `USBmap.kext` would be created. Install the kext to your USB install EFI partition and proceed.
+In direct conjunction with enabling Sleep and Wake, you have to define your USB ports to macOS to have a bug-free sleep cycle. Follow this [part](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html) of the OpenCore guide to map your USB. 
 
-Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch MountEFI and OpenCore Configurator again and mount the EFI partitions of both your USB installer and your system (system partition is usually disk0). Copy Boot and OC from the EFI folder in your USB installer to the EFI folder of your system.
+After following the instructions, `USBmap.kext` would be created. Install the kext to your USB install EFI partition and proceed.
+
+`Note` Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
+
+Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
 
 At this point, your system is now bootable without the need for your USB installer.  
 
