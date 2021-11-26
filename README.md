@@ -97,10 +97,10 @@ If all goes well, you have successfully installed macOS on your machine with mos
 
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and system. Open Finder and on the menu bar, go to `Finder -> Preferences -> General` and check `Hard disks` to display your system drive on the desktop. Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your hard disk.
 
-At this point, your system is now bootable with the need for the USB installer. You now have 90% working Hackintosh and quite frankly could go on without the next few steps.
+At this point, your system is now bootable with the need for the USB installer. You now have a 90% working Hackintosh and quite frankly could go on without the next few steps.
 
-## The Remaining 9.99% Installation
-
+## Remaining 9.99% Post-Installation
+Great choice! Why not since you've already come all this way. All that is left is to get Touchscreen working, perfect Power Management and install 3rd party applications to enhance the Audio, Touchpad and Thermal Throttling.
 
 
 
