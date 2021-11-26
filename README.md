@@ -177,11 +177,26 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 ### Enabling Touchscreen (DSDT Patching)
 In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
   
-Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete the entire `If ((...)` Statement at the end of the method and add this code if it isn't already present:
+Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete this section:
+```
+ If ((OSYS < 0x07DC))
+ {
+     Return (SBFI) /* \_SB_.PCI0.I2C1.TPNL.SBFI */
+ }
+ If (Zero)
+ {
+     Return (ConcatenateResTemplate (SBFB, SBFG))
+ }
+```
+Add this code if it isn't already present:
 ```
 Return (ConcatenateResTemplate (SBFB, SBFI))
 ```
-Save the file as `DSDT.aml` in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top. Restart macOS through the USB Installer and test your touchscreen.
+The method should looks like this afterwards:
+
+![image](https://user-images.githubusercontent.com/47384524/143611671-f1564e45-40ae-4a58-9098-d8ad46cbb692.png)
+
+Save the file as `DSDT.aml` in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top of the list. Restart macOS through the USB Installer and test your touchscreen.
  
 If all goes well, your touchscreen is now working. Repeat the immediate previous step on your system EFI.
 
