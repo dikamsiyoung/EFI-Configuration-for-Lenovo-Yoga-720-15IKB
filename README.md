@@ -163,7 +163,7 @@ Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPU
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
 ### Reducing Thermal Throttling (Undervolting)
-Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency` and see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
+Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees) unnecessarily. If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
 VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
 
