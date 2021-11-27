@@ -179,6 +179,8 @@ A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -
 sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 ```
 
+> `Note` <CPU> and <CPUCache> must be the same value.
+  
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
 ### Enabling Touchscreen (DSDT Patching)
