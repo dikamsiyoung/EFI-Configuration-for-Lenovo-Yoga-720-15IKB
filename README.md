@@ -107,7 +107,7 @@ Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installa
 
 Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
-> `Note` The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
+> The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
@@ -131,7 +131,7 @@ In direct conjunction with enabling Sleep and Wake, you have to define your USB 
 
 After following the instructions, `USBmap.kext` would be created. Install that kext to your USB installer EFI partition and proceed.
 
-> `Note` Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
+> Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
 Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
 
@@ -179,7 +179,9 @@ A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -
 sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 ```
 
-> `Note` \<CPU> and \<CPUCache> must be the same value. Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
+> \<CPU> and \<CPUCache> must be the same value. 
+
+> Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
 
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
 
