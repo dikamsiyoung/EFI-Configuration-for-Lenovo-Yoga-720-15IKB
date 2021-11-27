@@ -158,7 +158,7 @@ If all goes well, your can repeat the immediate previous step for your system's 
 ### Enabling Low Frequency Mode
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
-Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for the Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
+Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
