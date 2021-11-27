@@ -218,7 +218,7 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 ### Stock PM981 NVMe SSD 
 The Samsung PM981 (or more precise the Phoenix controller it uses) is known to cause random kernel panics in macOS. Up until now, there was no way to even install macOS on the PM981 and the only option was to replace it with either a SATA or a known working NVMe SSD. However, recently a new set of patches, namely [NVMeFix](https://github.com/acidanthera/NVMeFix) was released. It greatly improves compatibility with non-apple SSDs including the PM981. Thanks to those patches, you can now install macOS, but there is still a chance for kernel panics to occur while booting.
 
-## Acknoledgements
+## Acknowledgements
 - [acidanthera](https://github.com/acidanthera) for providing almost all kexts and drivers
 - [dortania](https://github.com/dortania) for an amazing in-depth guide to hackintoshing.
 - [alexandred](https://github.com/alexandred) for providing VoodooI2C
