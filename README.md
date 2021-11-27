@@ -34,7 +34,7 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 | ✅ | Wi-Fi and Bluetooth |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
-| ✅ | Sidecar, Continuity and HandOff |
+| ✅ | Sidecar, Continuity, and HandOff |
 | 🟨 | AirDrop |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
