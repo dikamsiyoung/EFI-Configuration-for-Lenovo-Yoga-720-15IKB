@@ -9,7 +9,8 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 | :--: | -- |
 | **Machine** | Lenovo Yoga 720 15-IKB |
 | **Processor** | Intel i7-7700HQ |
-| **Graphics** | Intel HD630 (Integrated GPU)  NVIDIA GTX 1050 (2GB VRAM) |
+| **Graphics** | Intel HD630 (Integrated GPU) |
+| **Renderer** | NVIDIA GTX 1050 (2GB VRAM) |
 | **RAM** | 16GB DDR4 (Stock) |
 | **Internal Display** | 4K UHD @60Hz with Touchscreen |
 | **Storage** | WD_Black SN750 NVMe SSD (Replacement) |
