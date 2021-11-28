@@ -63,7 +63,7 @@ Also read up on these.
 - [Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
 - [SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
 
-## Making the USB Installer
+## 1. Making the USB Installer
 *Requires a 16GB+ USB 2.0 (or higher) storage device.*
 
 You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), or [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
@@ -71,7 +71,7 @@ I recommend using a real Mac or a virtual machine to create the installer in ord
 
 At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac.
 
-## Configuring your EFI Folder
+### Configuring your EFI Folder
 Clone this repository, unzip the file and copy the EFI folder to your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`.  
@@ -96,7 +96,7 @@ to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Inte
 
 At this point, your USB Installer should be bootable and ready for installation.
 
-## Configuring BIOS
+## 2. Configuring BIOS
 With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
 
 Restart the computer and press `F2` to boot to your BIOS Configuration. Use the navigation instructions provided on-screen and make sure the features below are properly set.  
@@ -112,14 +112,14 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 
 Now you are ready to begin the installation.
 
-## Installing macOS
+## 3. Installing macOS
 Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation. 
 
 Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
 > The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
-## Post-Installation
+## 4. Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
 
 Now it's time to perform post-installations that requires some data created after macOS was installed. 
@@ -149,7 +149,7 @@ At this point, your system is now bootable without the need for your USB install
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
-## Remaining 9.99% Post-Installation
+## 5. Remaining 9.99% Post-Installation
 Great choice! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling.
 
 ### Enhancing Power Management (CFG-Unlock)
@@ -172,7 +172,7 @@ Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPU
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
-### Reducing Thermal Throttling (Undervolting)
+#### Reducing Thermal Throttling (Undervolting)
 Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
 VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
