@@ -47,11 +47,21 @@ If you are new to Hackintosh, please read through the entire [OpenCore Guide](ht
 
 ## Need to know
 Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
-- [What are Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
-- [What are Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
-- [What are SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
-- **How to install and update Kexts with OpenCore Configurator**: Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
-- **How to run downloaded apps and commands in macOS**: Right click the file and select `Open`.
+- #### Extensible Firmware Interface (EFI) 
+  Following the widespread adoption of Unified Extensible Firmware Interface (UEFI) by PC manufacturers as the standard interface between operating systems and their corresponding hardware, PCs can now boot directly from nonvolatile storage devices instead of a read-only chip embedded on their motherboard. The boot files are located in the first partition of a GPT-formatted storage device, which is known as the EFI System Partition (or ESP). The switch to UEFI vastly increases boot speed, the amount of external storage that can be addressed by the system, and for the purpose of this guide, it affords us the ability to configure the boot process with more ease.
+  
+  Read more about UEFI [here](https://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI#:~:text=Unified%20Extensible%20Firmware%20Interface%20(UEFI)%20is%20a%20specification%20for%20a,its%20operating%20system%20(OS).&text=Like%20BIOS%2C%20UEFI%20is%20installed,runs%20when%20booting%20a%20computer.)
+
+- #### Installing and updating Kexts with OpenCore Configurator  
+  Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
+  
+- #### Running downloaded apps and commands in macOS  
+  Right click the file and select `Open`.  
+
+Also read up on these.
+- [Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+- [Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+- [SSDTs or DSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-input)
 
 ## Making the USB Installer
 *Requires a 16GB+ USB 2.0 (or higher) storage device.*
@@ -62,7 +72,6 @@ I recommend using a real Mac or a virtual machine to create the installer in ord
 At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac.
 
 ### Configuring EFI
-
 Clone this repository, unzip the file and copy the EFI folder to your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`.  
@@ -146,7 +155,7 @@ Great choice! Why not since you've already come all this way. All that is left i
 ### Enhancing Power Management (CFG-Unlock)
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
 
-> `Warning` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software! If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again.  
+> `Warning!` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software! If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again.  
 
 Unfortunately, Lenovo has sealed this feature away. Luckily, this [guide](https://www.reddit.com/r/hackintosh/comments/hz2rtm/cfg_lockunlocking_alternative_method/) can help you get started. Use this version of [RU](https://ruexe.blogspot.com/2019/11/ru-5240370-beta.html) as other versions may not work with your keyboard. `0x3C` is the offset value of this machine.
 
