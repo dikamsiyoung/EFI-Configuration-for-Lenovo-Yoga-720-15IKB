@@ -41,7 +41,7 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 | ❌ | Fingerprint Reader |
 
 # Installation
-If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making referrences to several portions of it. 
 
 >  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
@@ -79,7 +79,7 @@ Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configur
 ### SMBIOS
 You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo`. Select the closest MacBook version to your processor from the list at the bottom. 
 
-You can set the correct value for your ROM now if you have the Mac Address of your Wi-Fi module. If you don't have it, you can find it [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom). This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
+You can set the correct value for your ROM now if you have the Mac Address of your Wi-Fi module. If you don't have it, follow [this](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom) part of the OpenCore Guide. This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
 
 After setting your SMBIOS, while still in OpenCore Configurator, head over to `Kernel` and uncheck `CustomSMBIOSGUID` quirk.
 
