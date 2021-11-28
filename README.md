@@ -41,7 +41,7 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 | ❌ | Fingerprint Reader |
 
 # Installation
-If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making referrences to several portions of it. 
+If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
 
 >  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
