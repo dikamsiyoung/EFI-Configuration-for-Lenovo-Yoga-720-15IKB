@@ -143,7 +143,7 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 
 > Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
-Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy `Boot` and `OC` from the EFI folder in your USB installer to the EFI folder of your system.
+Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy the EFI folder in your USB installer to the EFI partition of your system.
 
 At this point, your system is now bootable without the need for your USB installer.  
 
