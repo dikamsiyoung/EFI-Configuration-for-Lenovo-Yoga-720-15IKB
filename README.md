@@ -147,7 +147,7 @@ Now, you have to move your configured EFI folder from the USB installer to your 
 
 At this point, your system is now bootable without the need for your USB installer.  
 
-You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as they require advanced knowledge, patience, and the ability to follow guides thoroughly.
+You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## 5. Remaining 9.99% Post-Installation
 Great choice! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling.
