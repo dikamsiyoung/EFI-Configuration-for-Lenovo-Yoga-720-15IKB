@@ -54,7 +54,7 @@ Knowledge in this section will help you debug issues quickly and potentially pre
 
 - #### Installing and updating Kexts with OpenCore Configurator  
   Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
-  > The order in which you arrange kexts and SSDTs matters, try to retain the arrangement provided in this EFI. If you your touchpad stops working, compare your current arrangement with this one and make the necessary corrections.
+  > The order in which you arrange kexts and SSDTs matters. Try as much as possible to retain the arrangement provided in this EFI. If you your touchpad stops working, compare your current arrangement with this one and make the necessary corrections.
   
 - #### Running downloaded apps and commands in macOS  
   Right click the file and select `Open`.  
