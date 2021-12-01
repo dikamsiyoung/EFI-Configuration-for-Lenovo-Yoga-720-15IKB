@@ -1,7 +1,13 @@
-## Update
-Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). EFI folder provided in the zip. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
+
+## Update (01/12/21)
+Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
+
+### Changes
+- Replaced `IntelBluetoothInjector.kext` with `BluetoolFixup.kext`.
+- Set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9.
+- Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
 
 # Introduction
 This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
@@ -52,9 +58,7 @@ Knowledge in this section will help you debug issues quickly and potentially pre
 - #### Extensible Firmware Interface (EFI) 
   Following the widespread adoption of Unified Extensible Firmware Interface (UEFI) by PC manufacturers as the standard interface between operating systems and their corresponding hardware, PCs can now boot directly from nonvolatile storage devices instead of a read-only chip embedded on their motherboard. The boot files are located in the first partition of a GPT-formatted storage device, which is known as the EFI System Partition (or ESP). The switch to UEFI vastly increases boot speed, the amount of external storage that can be addressed by the system, and for the purpose of this guide, it affords us the ability to configure the boot process with more ease. Read more about UEFI [here](https://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI#:~:text=Unified%20Extensible%20Firmware%20Interface%20(UEFI)%20is%20a%20specification%20for%20a,its%20operating%20system%20(OS).&text=Like%20BIOS%2C%20UEFI%20is%20installed,runs%20when%20booting%20a%20computer.).
    
-  The EFI configuration for a successful macOS boot with OpenCore requires a `BOOT` folder containing BOOTx64.efi (a file that initializes the boot sequence) and an `OC` folder containing necessary OpenCore files. Files to be loaded and their settings are defined in `Config.plist`
-  
-  Refer to the [OpenCore EFI Documentation](https://dortania.github.io/docs/latest/Configuration.html) for a detailed explanation of each directory in this repository.
+  The EFI configuration for a successful macOS boot with OpenCore requires a `BOOT` folder containing BOOTx64.efi (a file that initializes the boot sequence) and an `OC` folder containing necessary OpenCore files. Files to be loaded and their settings are defined in `Config.plist`. Refer to the [OpenCore EFI Documentation](https://dortania.github.io/docs/latest/Configuration.html) for a detailed explanation of each directory in this repository.
   
 - #### Config.plist
   Located in the root of the EFI folder, `Config.plist` defines various files to be loaded during UEFI boot and others to be injected into macOS along with their configurations. It also defines the order of precedence with which these files will be loaded.
@@ -83,17 +87,18 @@ Clone this repository, unzip the file and copy the EFI folder to your newly open
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`. 
 
-#### SMBIOS
-You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo`. Select the closest MacBook version to your processor from the list at the bottom. 
+- #### PlatformInfo
+You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo -> DataHub - Generic - PlatformNVRAM`. Select the closest MacBook version to your processor from the list at the bottom. 
 
-You can set the correct value for your ROM now if you have the Mac Address of your Wi-Fi module. If you don't have it, follow [this](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom) part of the OpenCore Guide. This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
+You can set the correct value for your ROM under `Generic` tab if you have the Mac Address of your Wi-Fi module. If you don't have it, follow [this](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom) part of the OpenCore Guide. This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
 
 After setting your SMBIOS, while still in OpenCore Configurator, head over to `Kernel` and uncheck `CustomSMBIOSGUID` quirk.
 
-#### Wi-Fi and Bluetooth Kext
+- #### Kernel: Wi-Fi and Bluetooth
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
-
-> `Monterey` Ensure that IntelBluetoothInjector.kext and BrcmBluetoothInjector.kext are replaced with BluetoolFixup. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+> **Monterey**  
+> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
 However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
@@ -103,10 +108,10 @@ However, if you are using a Broadcom module (check this [list](https://www.reddi
 
 to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Intel kexts: `AirportItlwm`, `IntelBluetoothInjector`, and `IntelBluetoothFirmware` from `EFI\OC\Kexts` and `Config.plist`
 
-At this point, your USB Installer should be bootable and ready for installation.
+> `Debug:`  Loading BluetoothInjector kext in Monterey can cause very slow boot.
 
 ## 2. Configuring BIOS
-With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
+At this point, your USB Installer should be bootable and ready for installation. With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
 
 Restart the computer and press `F2` to boot to your BIOS Configuration. Use the navigation instructions provided on-screen and make sure the features below are properly set.  
 |  |  |
@@ -181,7 +186,7 @@ Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPU
 
 If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
-#### Reducing Thermal Throttling (Undervolting)
+### Reducing Thermal Throttling (Undervolting)
 Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
 VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
@@ -203,6 +208,8 @@ sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 > Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
 
 Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
+
+> `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
 
 ### Enabling Touchscreen (DSDT Patching)
 In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
@@ -235,10 +242,10 @@ Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures
 ### Enhancing Audio (Not much needed here)
 Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
 
-## Additional Information
-### macOS Monterey
-The hackintosh community is still tying up some loose ends with this update and hence some hardware and features may not quite work as well. I have tried upgrading from Big Sur with many things potentially working right. However, the boot time was much slower than my tolerance could handle. I'd give the upgrade another try when support has for it has fully matured.
+> **Monterey**  
+> Remove `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext` as they are not needed any longer.
 
+## Additional Information
 ### Stock Samsung PM981 NVMe SSD 
 This SSD (or more precise the Phoenix controller it uses) is known to cause random kernel panics in macOS. Up until now, there was no way to even install macOS on the PM981 and the only option was to replace it with either a SATA or a known working NVMe SSD. However, recently a new set of patches, namely [NVMeFix](https://github.com/acidanthera/NVMeFix) was released. It greatly improves compatibility with non-apple SSDs including the PM981. Thanks to those patches, you can now install macOS, but there is still a chance for kernel panics to occur while booting.
 
