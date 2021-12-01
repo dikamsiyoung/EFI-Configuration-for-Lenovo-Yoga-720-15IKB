@@ -1,8 +1,10 @@
-#
-<img width="1920" alt="Screen Shot 2021-11-25 at 12 24 50 PM" src="https://user-images.githubusercontent.com/47384524/143482754-b3e5c08f-8826-4286-94fb-a81e5b2f0211.png">
+## Update
+Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). EFI folder provided in the zip. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
+
+![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
 # Introduction
-This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It has been configured to run optimall on macOS Big Sur 11.5.2 and above versions.
+This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
 
 ### Hardware Configuration
 | | |
@@ -41,17 +43,21 @@ This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It h
 | ❌ | Fingerprint Reader |
 
 # Installation
-If you are new to Hackintosh, please read through the entire [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
+If you are new to Hackintosh, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
 
 >  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
 ## Need to know
 Knowledge in this section will help you debug issues quickly and potentially prevent future challenges.
 - #### Extensible Firmware Interface (EFI) 
-  Following the widespread adoption of Unified Extensible Firmware Interface (UEFI) by PC manufacturers as the standard interface between operating systems and their corresponding hardware, PCs can now boot directly from nonvolatile storage devices instead of a read-only chip embedded on their motherboard. The boot files are located in the first partition of a GPT-formatted storage device, which is known as the EFI System Partition (or ESP). The switch to UEFI vastly increases boot speed, the amount of external storage that can be addressed by the system, and for the purpose of this guide, it affords us the ability to configure the boot process with more ease.
+  Following the widespread adoption of Unified Extensible Firmware Interface (UEFI) by PC manufacturers as the standard interface between operating systems and their corresponding hardware, PCs can now boot directly from nonvolatile storage devices instead of a read-only chip embedded on their motherboard. The boot files are located in the first partition of a GPT-formatted storage device, which is known as the EFI System Partition (or ESP). The switch to UEFI vastly increases boot speed, the amount of external storage that can be addressed by the system, and for the purpose of this guide, it affords us the ability to configure the boot process with more ease. Read more about UEFI [here](https://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI#:~:text=Unified%20Extensible%20Firmware%20Interface%20(UEFI)%20is%20a%20specification%20for%20a,its%20operating%20system%20(OS).&text=Like%20BIOS%2C%20UEFI%20is%20installed,runs%20when%20booting%20a%20computer.).
+   
+  The EFI configuration for a successful macOS boot with OpenCore requires a `BOOT` folder containing BOOTx64.efi (a file that initializes the boot sequence) and an `OC` folder containing necessary OpenCore files. Files to be loaded and their settings are defined in `Config.plist`
   
-  Read more about UEFI [here](https://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI#:~:text=Unified%20Extensible%20Firmware%20Interface%20(UEFI)%20is%20a%20specification%20for%20a,its%20operating%20system%20(OS).&text=Like%20BIOS%2C%20UEFI%20is%20installed,runs%20when%20booting%20a%20computer.)
-
+  Refer to the [OpenCore EFI Documentation](https://dortania.github.io/docs/latest/Configuration.html) for a detailed explanation of each directory in this repository.
+  
+- #### Config.plist
+  Located in the root of the EFI folder, `Config.plist` defines various files to be loaded during UEFI boot and others to be injected into macOS along with their configurations. It also defines the order of precedence with which these files will be loaded.
 - #### Installing and updating Kexts with OpenCore Configurator  
   Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
   > The order in which you arrange kexts and SSDTs matters. Try as much as possible to retain the arrangement provided in this EFI. If you your touchpad stops working, compare your current arrangement with this one and make the necessary corrections.
@@ -75,7 +81,7 @@ At this point, you have created a macOS Big Sur USB Installer. Now, you'd need t
 ### Configuring your EFI Folder
 Clone this repository, unzip the file and copy the EFI folder to your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
 
-Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`.  
+Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`. 
 
 #### SMBIOS
 You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo`. Select the closest MacBook version to your processor from the list at the bottom. 
@@ -86,6 +92,8 @@ After setting your SMBIOS, while still in OpenCore Configurator, head over to `K
 
 #### Wi-Fi and Bluetooth Kext
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
+
+> `Monterey` Ensure that IntelBluetoothInjector.kext and BrcmBluetoothInjector.kext are replaced with BluetoolFixup. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
 
 However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
