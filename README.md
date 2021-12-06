@@ -10,7 +10,7 @@ Successfully installed macOS Monterey with most features working. However, Conti
 - Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
 
 # Introduction
-This is a hackintosh EFI built with OpenCore for the Lenovo Yoga 720-15IKB. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
+Provided in this repository are EFI configurations for installing other operating systems on Lenovo Yoga 720-15IKB using OpenCore. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
 
 ### Hardware Configuration
 | | |
