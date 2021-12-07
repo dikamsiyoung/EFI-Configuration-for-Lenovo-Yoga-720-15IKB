@@ -248,7 +248,7 @@ Rearrange your BIOS boot order to desired preferrence. If you have a dual-boot, 
 ### OpenCore Default Boot
 To select a default boot entry within OpenCore itself, select the entry and press `CTRL` + `ENTER` to make it default. 
 
-> `Debug: ` After rebooting or hiberbating Windows, booting from OpenCore may result in an `ACPI_BIOS_ERROR`. Ensure to boot from your UEFI boot order after rebooting or hibernating Windows. On Lenovo systems, you can access the boot order at startup by pressing `F12`.
+> `Debug:` After rebooting or hiberbating Windows, booting from OpenCore may result in an `ACPI_BIOS_ERROR`. Ensure to boot from your UEFI boot order after rebooting or hibernating Windows. On Lenovo systems, you can access the boot order at startup by pressing `F12`.
 
 ## Additional Information
 ### Stock Samsung PM981 NVMe SSD 
