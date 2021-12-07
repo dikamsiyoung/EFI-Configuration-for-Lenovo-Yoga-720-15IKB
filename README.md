@@ -49,7 +49,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Installation
-If you are new to Hackintosh and OpenCore, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
+This is guide is provided for educational purposes and is based off numerous contributions by outstanding developers. If you are new to Hackintosh and OpenCore, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
 
 >  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
@@ -133,12 +133,12 @@ Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installa
 
 Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
-> The installer will restart a couple of times. Ensure that the USB is selected after each restart. You can change the Boot Order in your BIOS Configuration.
+> The installer will restart a couple of times. Ensure that the USB installer is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## 4. Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
 
-Now it's time to perform post-installations that requires some data created after macOS was installed. 
+Now it's time to perform post-installations that requires some data created after macOS was installed. Fetch `MountEFI` and `OpenCore Configurator` again. You'd need them to mount EFI and configure some more setting. After setting up post-installations and advanced features, you should copy the installer's EFI folder to your system EFI partition.
 
 ### Sleep, Wake, and Hibernation
 These features, especially Hibernation seem to be working out of the box on later OpenCore versions. However, constant writing to SSDs through Hibernation reduces their lifespans, and there have even been reports that it can lead to data corruption. In order to disable Hibernation leaving just Sleep and Wake, run the following code in Terminal:
@@ -159,10 +159,6 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 
 >`Debug:`  Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
-Now, you have to move your configured EFI folder from the USB installer to your system's EFI partition. Fetch `MountEFI` and `OpenCore Configurator` again and mount the EFI partitions of both your USB installer and your system (system partition is usually `disk0`). Copy the EFI folder in your USB installer to the EFI partition of your system.
-
-At this point, your system is now bootable without the need for your USB installer.  
-
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## 5. Advanced Features
@@ -177,18 +173,14 @@ Most BIOS come with an option to set a feature called CFG-Lock (read more about 
 
 Unfortunately, Lenovo has sealed this feature away. Luckily, this [guide](https://www.reddit.com/r/hackintosh/comments/hz2rtm/cfg_lockunlocking_alternative_method/) can help you get started. Use this version of [RU](https://ruexe.blogspot.com/2019/11/ru-5240370-beta.html) as other versions may not work with your keyboard. `0x3C` is the offset value of this machine.
 
-After you've cleared the CFG-Lock, restart your system and select `VerifyMsrE2` from OpenCore boot options instead of booting to macOS to verify that CFG-Lock is indeed unlocked. It should look like [this](https://drive.google.com/file/d/1tItmnh3WlMhKXUy7UtoapPLpg6mEsW-L/view). 
+After you've cleared the CFG-Lock, restart your system and select `VerifyMsrE2` from OpenCore boot options. It should look like [this](https://drive.google.com/file/d/1tItmnh3WlMhKXUy7UtoapPLpg6mEsW-L/view). 
 
 Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` quirk in `Config.plist -> Kernel`. Restart macOS from the USB drive to see if it works.
-
-If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
 ### Enabling Low Frequency Mode
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
-
-If all goes well, your can repeat the immediate previous step for your system's EFI partition this time around.
 
 ### Reducing Thermal Throttling (Undervolting)
 Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
@@ -211,7 +203,7 @@ sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
 
 > Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
 
-Reboot your system and test with Intel Power Gadget to see if your system still throttles. If all goes well, you have just enhanced your system performance. Run several Geekbenches and see how your machine performs against others in its class.
+Reboot your system and test with Intel Power Gadget to see if your system still throttles. Run several Geekbenches and measure how well your machine performs against others in its class.
 
 > `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
 
@@ -238,8 +230,6 @@ The method should looks like this afterwards:
 ![image](https://user-images.githubusercontent.com/47384524/143611671-f1564e45-40ae-4a58-9098-d8ad46cbb692.png)
 
 Save the file as `DSDT.aml` in another directory. Copy this file to your USB installer `EFI\OC\ACPI` folder and also to `Config.plist -> ACPI -> Add`. Make sure it is at the top of the list. Restart macOS through the USB Installer and test your touchscreen.
- 
-If all goes well, your touchscreen is now working. Repeat the immediate previous step on your system EFI.
 
 Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
 
@@ -248,6 +238,17 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 
 > **Monterey**  
 > Remove `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext` as they are not needed any longer.
+
+## 6. Finalizing your Installation
+Up to this point, you have been boot from your USB installer. If you want to do away with the installer at boot, you can do so by copying its EFI folder to your system EFI partition.
+
+### BIOS Configuration
+Rearrange your BIOS boot order to desired preferrence. If you have a dual-boot, ensure each boot entry is correctly named. Use [Bootice](https://www.softpedia.com/get/System/Boot-Manager-Disk/Bootice.shtml) to modify your boot entry if you are running Windows. Head over to `BOOTICE -> UEFI` to make the necessary configurations.
+
+### OpenCore Default Boot
+To select a default boot entry within OpenCore itself, select the entry and press `CTRL` + `ENTER` to make it default. 
+
+> `Debug: ` After rebooting or hiberbating Windows, booting from OpenCore may result in an `ACPI_BIOS_ERROR`. Ensure to boot from your UEFI boot order after rebooting or hibernating Windows. On Lenovo systems, you can access the boot order at startup by pressing `F12`.
 
 ## Additional Information
 ### Stock Samsung PM981 NVMe SSD 
