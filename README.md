@@ -133,7 +133,7 @@ Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installa
 
 Plug in the USB installer, restart your computer, and press `F12`. This would bring up your Boot Menu. Select the EFI option that has the name of your USB. You should see another set options to select. Select `Install macOS Big Sur` and follow the on-screen instructions when it is booted.
 
-> The installer will restart a couple of times. Ensure that the USB installer is selected after each restart. You can change the Boot Order in your BIOS Configuration.
+> `Debug:` The installer will restart a couple of times. Ensure that the USB installer is selected after each restart. You can change the Boot Order in your BIOS Configuration.
 
 ## 4. Post-Installation
 If all goes well, you have successfully installed macOS on your machine with most of the hardware working. Make sure to sign into your Apple account at this point. 
