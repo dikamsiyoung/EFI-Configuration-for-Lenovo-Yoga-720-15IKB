@@ -1,10 +1,17 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
-## Update (01/12/21): Added Monterey EFI
+### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
+
+#### Changes
+- Updated OpenCore to v0.7.6
+- Updated Kexts.
+- Continuity still works one way.
+
+### (01/12/21) - Added Monterey EFI
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
 
-### Monterey EFI Changes
+#### Monterey EFI Changes
 - Replaced `IntelBluetoothInjector.kext` with `BluetoolFixup.kext`.
 - Set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9.
 - Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
