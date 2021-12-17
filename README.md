@@ -8,7 +8,7 @@
 - Updated Kexts.
 - Continuity still works one way.
 
-### (01/12/21) - Added Monterey EFI
+### (01/12/21) - Updated to macOS 12.1 (Monterey)
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
 
 #### Monterey EFI Changes
