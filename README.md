@@ -105,9 +105,6 @@ After setting your SMBIOS, while still in OpenCore Configurator, head over to `K
 
 - #### Kernel: Wi-Fi and Bluetooth
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
-> **Monterey**  
-> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
-> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
 However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
@@ -117,7 +114,9 @@ However, if you are using a Broadcom module (check this [list](https://www.reddi
 
 to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Intel kexts: `AirportItlwm`, `IntelBluetoothInjector`, and `IntelBluetoothFirmware` from `EFI\OC\Kexts` and `Config.plist`
 
-> `Debug:`  Loading BluetoothInjector kext in Monterey can cause very slow boot.
+> **Monterey**  
+> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
 ## 2. Configuring BIOS
 At this point, your USB Installer should be bootable and ready for installation. With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
