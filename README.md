@@ -248,7 +248,7 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 ## 6. Finalizing your Installation
 Up to this point, you have been booting from your USB installer. If you want to do away with the installer at boot, you can do so by copying its EFI folder to your system EFI partition.
 
-### BIOS Configuration
+### Dual Boot
 Rearrange your BIOS boot order to desired preferrence. If you have a dual-boot, ensure each boot entry is correctly named. Use [Bootice](https://www.softpedia.com/get/System/Boot-Manager-Disk/Bootice.shtml) to modify your boot entry if you are running Windows. Head over to `BOOTICE -> UEFI` to make the necessary configurations.
 
 ### OpenCore Default Boot
