@@ -170,7 +170,7 @@ You now have a 90% working Hackintosh and quite frankly could go on without the 
 ## 5. Advanced Features
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
-Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous setting before making any edit, compare the picture with your editted setting and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not include in this next section.
+Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous settings before making any edit, compare the picture with your editted settings and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not included in this next section.
 
 ### Enhancing Power Management (CFG-Unlock)
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
