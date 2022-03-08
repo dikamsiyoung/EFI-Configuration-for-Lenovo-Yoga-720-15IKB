@@ -37,7 +37,7 @@ Provided in this repository are EFI configurations for installing other operatin
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.7.5 |
+| ✅ | OpenCore v0.7.6 |
 | ✅ | 4K@60Hz Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
