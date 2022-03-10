@@ -8,7 +8,7 @@
 - Updated Kexts.
 - Continuity still works one way.
 
-### (01/12/21) - Updated to macOS 12.1 (Monterey)
+### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
 
 #### Monterey EFI Changes
@@ -37,7 +37,7 @@ Provided in this repository are EFI configurations for installing other operatin
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.7.5 |
+| ✅ | OpenCore v0.7.6 |
 | ✅ | 4K@60Hz Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
@@ -65,7 +65,7 @@ Knowledge in this section will help you debug issues quickly and potentially pre
 - #### Extensible Firmware Interface (EFI) 
   Following the widespread adoption of Unified Extensible Firmware Interface (UEFI) by PC manufacturers as the standard interface between operating systems and their corresponding hardware, PCs can now boot directly from nonvolatile storage devices instead of a read-only chip embedded on their motherboard. The boot files are located in the first partition of a GPT-formatted storage device, which is known as the EFI System Partition (or ESP). The switch to UEFI vastly increases boot speed, the amount of external storage that can be addressed by the system, and for the purpose of this guide, it affords us the ability to configure the boot process with more ease. Read more about UEFI [here](https://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI#:~:text=Unified%20Extensible%20Firmware%20Interface%20(UEFI)%20is%20a%20specification%20for%20a,its%20operating%20system%20(OS).&text=Like%20BIOS%2C%20UEFI%20is%20installed,runs%20when%20booting%20a%20computer.).
    
-  The EFI configuration for a successful macOS boot with OpenCore requires a `BOOT` folder containing `BOOTx64.efi` (a file that initializes the boot sequence) and an `OC` folder containing files necessary for OpenCore to be loaded successfully. Theses files and their settings are defined in `Config.plist`. 
+  The EFI configuration for a successful macOS boot with OpenCore requires a `BOOT` folder containing `BOOTx64.efi` (a file that initializes the boot sequence) and an `OC` folder containing files necessary for OpenCore to be loaded successfully. These files and their settings are defined in `Config.plist`. 
   
   Refer to the [OpenCore EFI Documentation](https://dortania.github.io/docs/latest/Configuration.html) for a detailed explanation of each directory in this repository.
   
@@ -87,9 +87,9 @@ Also read up on these.
 *Requires a 16GB+ USB 2.0 (or higher) storage device.*
 
 You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), or [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
-I recommend using a real Mac or a virtual machine to create the installer in order to follow conveniently with this guide. 
+I have linked each individual guides to the OS names highlighted. Please go through the guide for your preferred OS. I recommend using a real Mac or a macOS virtual machine to create the installer in order to follow conveniently with this guide. 
 
-At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a Mac.
+At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a real Mac or a macOS virtual machine.
 
 ### Configuring your EFI Folder
 Clone this repository, unzip the file and copy the EFI folder to your newly opened EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
@@ -105,9 +105,6 @@ After setting your SMBIOS, while still in OpenCore Configurator, head over to `K
 
 - #### Kernel: Wi-Fi and Bluetooth
 If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
-> **Monterey**  
-> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
-> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
 However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
 - `AirportBrcmFixup.kext`  
@@ -117,7 +114,9 @@ However, if you are using a Broadcom module (check this [list](https://www.reddi
 
 to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Intel kexts: `AirportItlwm`, `IntelBluetoothInjector`, and `IntelBluetoothFirmware` from `EFI\OC\Kexts` and `Config.plist`
 
-> `Debug:`  Loading BluetoothInjector kext in Monterey can cause very slow boot.
+> **Monterey**  
+> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
 ## 2. Configuring BIOS
 At this point, your USB Installer should be bootable and ready for installation. With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
@@ -171,7 +170,7 @@ You now have a 90% working Hackintosh and quite frankly could go on without the 
 ## 5. Advanced Features
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
-Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous setting before making any edit, compare the picture with your editted setting and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not include in this next section.
+Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous settings before making any edit, compare the picture with your editted settings and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not included in this next section.
 
 ### Enhancing Power Management (CFG-Unlock)
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
@@ -249,7 +248,7 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 ## 6. Finalizing your Installation
 Up to this point, you have been booting from your USB installer. If you want to do away with the installer at boot, you can do so by copying its EFI folder to your system EFI partition.
 
-### BIOS Configuration
+### Dual Boot
 Rearrange your BIOS boot order to desired preferrence. If you have a dual-boot, ensure each boot entry is correctly named. Use [Bootice](https://www.softpedia.com/get/System/Boot-Manager-Disk/Bootice.shtml) to modify your boot entry if you are running Windows. Head over to `BOOTICE -> UEFI` to make the necessary configurations.
 
 ### OpenCore Default Boot
