@@ -1,6 +1,13 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
+### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
+
+#### Changes
+- Updated OpenCore files to v0.7.9
+- Updated Kexts.
+- Continuity still works one way.
+
 ### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
 
 #### Changes
