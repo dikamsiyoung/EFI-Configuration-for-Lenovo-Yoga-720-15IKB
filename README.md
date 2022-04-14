@@ -44,7 +44,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | **Internal Display** | 4K UHD @60Hz with Touchscreen |
 | **Storage** | WD_Black SN750 NVMe SSD (Replacement) |
 | **Audio** | Realtek ALC236 |
-| **WLAN + Bluetooth** | Fenvi BCM94360NG Wireless (Replacement) |
+| **WLAN + Bluetooth** | Fenvi BCM94360NG (Replacement) |
 | **Touchpad** | Elantech |
 | **BIOS Version** | 4MCN33WW(V2.05) 2018 |
 
