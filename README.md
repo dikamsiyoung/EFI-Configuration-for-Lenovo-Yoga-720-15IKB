@@ -41,7 +41,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | **Graphics** | Intel HD630 (Integrated GPU) |
 | **Renderer** | NVIDIA GTX 1050 (2GB VRAM) |
 | **RAM** | 16GB DDR4 (Stock) |
-| **Internal Display** | 4K UHD @60Hz with Touchscreen |
+| **Internal Display** | 4K UHD @60Hz with Touchscreen & Pen |
 | **Storage** | WD_Black SN750 NVMe SSD (Replacement) |
 | **Audio** | Realtek ALC236 |
 | **WLAN + Bluetooth** | Fenvi BCM94360NG (Replacement) |
