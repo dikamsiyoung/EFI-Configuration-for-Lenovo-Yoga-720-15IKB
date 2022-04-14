@@ -9,7 +9,7 @@
 - Continuity features working properly.
 - WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
 - Added SSDT-USBW patch to allow system wake after pressing a button once.
-- Stopped updating Big Sur kexts.
+- Stopped updating Big Sur kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
 
 ### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
 
