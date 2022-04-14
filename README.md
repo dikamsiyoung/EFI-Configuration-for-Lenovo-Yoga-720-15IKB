@@ -1,12 +1,13 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
-### (14/04/22) - Updated to OpenCore 0.7.9 and macOS 12.3.1
+### (14/04/22) - Updated to macOS 12.3.1 and changed WiFi/Bluetooth Card
 
 #### Changes
 - Replaced Intel Dual Band Wireless-AC 8265 with Fenvi BCM94360NG Wireless Card.
-- Removed WiFi and Bluetooth kexts
+- Removed WiFi and Bluetooth kexts.
 - Continuity features working properly.
+- WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
 
 ### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
 
