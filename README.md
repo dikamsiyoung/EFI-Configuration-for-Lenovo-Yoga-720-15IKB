@@ -69,7 +69,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | AirDrop |
-| ✅ | Universal Control |
+| ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
