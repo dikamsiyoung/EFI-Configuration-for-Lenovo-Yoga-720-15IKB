@@ -1,6 +1,13 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
+### (14/04/22) - Updated to OpenCore 0.7.9 and macOS 12.3.1
+
+#### Changes
+- Replaced Intel Dual Band Wireless-AC 8265 with Fenvi BCM94360NG Wireless Card.
+- Removed WiFi and Bluetooth kexts
+- Continuity features working properly.
+
 ### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
 
 #### Changes
@@ -37,7 +44,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | **Internal Display** | 4K UHD @60Hz with Touchscreen |
 | **Storage** | WD_Black SN750 NVMe SSD (Replacement) |
 | **Audio** | Realtek ALC236 |
-| **WLAN + Bluetooth** | Intel Dual Band Wireless-AC 8265 (Stock) |
+| **WLAN + Bluetooth** | Fenvi BCM94360NG Wireless Card (Replacement) |
 | **Touchpad** | Elantech |
 | **BIOS Version** | 4MCN33WW(V2.05) 2018 |
 
@@ -58,7 +65,8 @@ Provided in this repository are EFI configurations for installing other operatin
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
-| 🟨 | AirDrop |
+| ✅ | AirDrop |
+| ✅ | Universal Control |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
