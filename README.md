@@ -3,6 +3,10 @@
 
 ### (22/04/22) - Updated to OpenCore 0.8.0
 
+#### Changes
+- Updated OpenCore Files to v0.8.0
+- Updated Kexts
+
 ### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
 #### Changes
