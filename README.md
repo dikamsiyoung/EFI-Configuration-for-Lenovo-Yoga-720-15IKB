@@ -1,46 +1,10 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
-### (22/04/22) - Updated to OpenCore 0.8.0
-
-#### Changes
-- Updated OpenCore Files to v0.8.0
-- Updated Kexts
-
-### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
-
-#### Changes
-- Replaced Intel Dual Band Wireless-AC 8265 with Fenvi BCM94360NG Wireless Card.
-- Removed WiFi and Bluetooth kexts.
-- Continuity features working properly.
-- WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
-- Added SSDT-USBW patch to allow system wake after pressing a button once.
-- Stopped updating Big Sur Kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
-
-### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
-
-#### Changes
-- Updated OpenCore files to v0.7.9
-- Updated Kexts.
-- Continuity still works one way.
-
-### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
-
-#### Changes
-- Updated OpenCore to v0.7.6
-- Updated Kexts.
-- Continuity still works one way.
-
-### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
-Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
-
-#### Monterey EFI Changes
-- Replaced `IntelBluetoothInjector.kext` with `BluetoolFixup.kext`.
-- Set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9.
-- Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
-
 # Introduction
 Provided in this repository are EFI configurations for installing other operating systems on Lenovo Yoga 720-15IKB using OpenCore. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
+
+![image](https://user-images.githubusercontent.com/47384524/164773816-56bbb742-a2cc-42cb-9d3f-831ea751cbde.png)
 
 ### Hardware Configuration
 | | |
@@ -78,6 +42,45 @@ Provided in this repository are EFI configurations for installing other operatin
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
+
+# Updates
+### (22/04/22) - Updated to OpenCore 0.8.0
+
+#### Changes
+- Updated OpenCore Files to v0.8.0
+- Updated Kexts
+
+### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
+
+#### Changes
+- Replaced Intel Dual Band Wireless-AC 8265 with Fenvi BCM94360NG Wireless Card.
+- Removed WiFi and Bluetooth kexts.
+- Continuity features working properly.
+- WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
+- Added SSDT-USBW patch to allow system wake after pressing a button once.
+- Stopped updating Big Sur Kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
+
+### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
+
+#### Changes
+- Updated OpenCore files to v0.7.9
+- Updated Kexts.
+- Continuity still works one way.
+
+### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
+
+#### Changes
+- Updated OpenCore to v0.7.6
+- Updated Kexts.
+- Continuity still works one way.
+
+### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
+Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
+
+#### Monterey EFI Changes
+- Replaced `IntelBluetoothInjector.kext` with `BluetoolFixup.kext`.
+- Set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9.
+- Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
 
 # Installation
 This is guide is provided for educational purposes and is based off numerous contributions by outstanding developers. If you are new to Hackintosh and OpenCore, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
