@@ -4,7 +4,13 @@
 # Introduction
 Provided in this repository are EFI configurations for installing other operating systems on Lenovo Yoga 720-15IKB using OpenCore. It has been configured to run optimally on macOS Big Sur 11.5.2 and above versions.
 
-![image](https://user-images.githubusercontent.com/47384524/164773816-56bbb742-a2cc-42cb-9d3f-831ea751cbde.png)
+###
+###
+###
+
+![image](https://user-images.githubusercontent.com/47384524/164774459-bea30f58-3d5b-45c7-a228-25f347fbb2af.png) 
+![image](https://user-images.githubusercontent.com/47384524/164774497-60d8a0e3-51cd-4a4b-a336-d3a2daffdd14.png)
+
 
 ### Hardware Configuration
 | | |
