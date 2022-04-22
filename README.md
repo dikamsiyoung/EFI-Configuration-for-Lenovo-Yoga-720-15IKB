@@ -50,15 +50,15 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
-### (22/04/22) - Updated to OpenCore 0.8.0
+#### (22/04/22) - Updated to OpenCore 0.8.0
 
-#### Changes
+##### Changes
 - Updated OpenCore Files to v0.8.0
 - Updated Kexts
 
-### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
+#### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
-#### Changes
+##### Changes
 - Replaced Intel Dual Band Wireless-AC 8265 with Fenvi BCM94360NG Wireless Card.
 - Removed WiFi and Bluetooth kexts.
 - Continuity features working properly.
@@ -66,24 +66,24 @@ Provided in this repository are EFI configurations for installing other operatin
 - Added SSDT-USBW patch to allow system wake after pressing a button once.
 - Stopped updating Big Sur Kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
 
-### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
+#### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
 
-#### Changes
+##### Changes
 - Updated OpenCore files to v0.7.9
 - Updated Kexts.
 - Continuity still works one way.
 
-### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
+#### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
 
-#### Changes
+##### Changes
 - Updated OpenCore to v0.7.6
 - Updated Kexts.
 - Continuity still works one way.
 
-### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
+#### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
 
-#### Monterey EFI Changes
+##### Monterey EFI Changes
 - Replaced `IntelBluetoothInjector.kext` with `BluetoolFixup.kext`.
 - Set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9.
 - Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
