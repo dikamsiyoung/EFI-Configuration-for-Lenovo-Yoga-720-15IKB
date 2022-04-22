@@ -1,6 +1,12 @@
 
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
+### (22/04/22) - Updated to OpenCore 0.8.0
+
+#### Changes
+- Updated OpenCore Files to v0.8.0
+- Updated Kexts
+
 ### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
 #### Changes
@@ -54,7 +60,7 @@ Provided in this repository are EFI configurations for installing other operatin
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.7.6 |
+| ✅ | OpenCore v0.8.0 |
 | ✅ | 4K@60Hz Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
