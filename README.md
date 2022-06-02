@@ -320,4 +320,5 @@ This SSD (or more precise the Phoenix controller it uses) is known to cause rand
 - [wouter](https://www.reddit.com/user/Wouter_001/) for his CFG-Unlock Guide
 - [jiashun zheng](https://jiashun-zheng.medium.com/) for his Yoga 720 Medium Guide
 - [jlp](https://www.tonymacx86.com/members/jlp.123582/) and [thefiredragon](https://www.tonymacx86.com/members/thefiredragon.1412039/) for compiling [EFI](https://www.tonymacx86.com/threads/yoga-720-try-out-high-sierra-issues.227222/page-22) for Yoga 720 15-IKB
+- [Baio1977](https://github.com/baio1977) for Touchscreen SSDT.
 - Everyone else involved in Hackintosh development
