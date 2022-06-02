@@ -51,15 +51,11 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
-#### (02/06/22) - Added Auto-Brightness
-
-##### Changes
-- Automatically Adjust Brightness now available in Display Preferences.
-
-#### (02/06/22) - Added Touchscreen SSDT
+#### (02/06/22) - Added Touchscreen SSDT, Added Auto-Brightness
 
 ##### Changes
 - No need to patch System DSDT, Touchscreen enabled by default. Refer to guide to see how to remove it.
+- Automatically Adjust Brightness now available in Display Preferences.
 
 #### (22/04/22) - Updated to OpenCore 0.8.0
 
