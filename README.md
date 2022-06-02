@@ -51,6 +51,11 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
+#### (02/06/22) - Added Auto-Brightness
+
+##### Changes
+- Automatically Adjust Brightness now available in Display Preferences.
+
 #### (02/06/22) - Added Touchscreen SSDT
 
 ##### Changes
