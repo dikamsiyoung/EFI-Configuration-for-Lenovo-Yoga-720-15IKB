@@ -50,6 +50,11 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
+#### (02/06/22) - Added Touchscreen SSDT
+
+##### Changes
+- No need to patch System DSDT, Touchscreen enabled by default. Refer to guide to see how to remove it.
+
 #### (22/04/22) - Updated to OpenCore 0.8.0
 
 ##### Changes
