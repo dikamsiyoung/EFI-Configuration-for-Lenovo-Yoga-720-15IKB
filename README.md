@@ -249,7 +249,7 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 
 > `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
 
-### Enabling Touchscreen (DSDT Patching)
+### Enabling Touchscreen
 
 `Update:` Touchscreen is activated by default with latest EFI version! You can skip to the next step. 
 
