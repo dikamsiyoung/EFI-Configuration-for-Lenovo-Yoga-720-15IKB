@@ -151,6 +151,9 @@ to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Inte
 > Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
 > Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey. It also prevents Monterey kexts from loading into Big sur.
 
+> **Fenvi BCM94360NG Wi-Fi Card**  
+> If you have opted to use the Fenvi BCM94360NG Wi-Fi card, there is no need to use any Wi-Fi or Bluetooth kext as most macOS Continuity features work out-of-the-box. I recommend removing all Wi-Fi and Bluetooth kexts from your EFI config. However, if you opt to use the Fenvi BCM94360NG Wi-Fi card, you will only be able to use half the speed of your internet connection on macOS due to driver incompatibilities.
+
 ## 2. Configuring BIOS
 At this point, your USB Installer should be bootable and ready for installation. With the USB installer bootable, all that remains is configuring the BIOS of your Hackintosh-to-be. 
 
