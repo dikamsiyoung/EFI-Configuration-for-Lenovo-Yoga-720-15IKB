@@ -251,7 +251,9 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 
 ### Enabling Touchscreen (DSDT Patching)
 
-> `Update:` Touchscreen activated with latest EFI version! You can skip to the next step. In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
+`Update:` Touchscreen is activated by default with latest EFI version! You can skip to the next step. In order to enable touchscreen, you have to patch your System DSDT. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide.
+
+To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` from `Config.plist -> ACPI`.
 
 <strike>
   
