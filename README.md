@@ -103,7 +103,7 @@ Knowledge in this section will help you debug issues quickly and potentially pre
   Refer to the [OpenCore EFI Documentation](https://dortania.github.io/docs/latest/Configuration.html) for a detailed explanation of each directory in this repository.
   
 - #### Config.plist
-  Located in the root of the EFI folder, `Config.plist` defines various files to be loaded during UEFI boot and others to be injected into macOS along with their configurations. It also defines the order of precedence with which these files will be loaded.
+  Located in the OC folder `EFI\OC\Config.plist`, `Config.plist` defines various files to be loaded during UEFI boot and others to be injected into macOS along with their configurations. It also defines the order of precedence with which these files will be loaded.
 - #### Installing and updating Kexts with OpenCore Configurator  
   Download the correct Kext version from Github, copy it to `EFI\OC\Kexts` in your USB Installer and also to `Kernel -> Add` in `EFI\OC\Config.plist`.  It is advisable to store your configured EFI safely and use USB installers to test any new updates or features before moving them to your sytem EFI.
   > `Debug:`  The order in which you arrange kexts and SSDTs matters. Try as much as possible to retain the arrangement provided in this EFI. OpenCore Configurator should automatically arrange your files when you add a new one however if your touchpad stops working, compare your current arrangement with the repository provided here and make the necessary corrections.
