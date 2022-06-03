@@ -31,7 +31,7 @@ Provided in this repository are EFI configurations for installing other operatin
 |  |  |
 | ---| --- |
 | ✅ | OpenCore v0.8.0 |
-| ✅ | 4K@60Hz Internal Display |
+| ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Auto-Brightness |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
