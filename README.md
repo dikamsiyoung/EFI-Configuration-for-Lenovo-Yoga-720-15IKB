@@ -309,7 +309,7 @@ To select a default boot entry within OpenCore itself, select the entry and pres
 ### Boot Straight to macOS
 To boot straight to macOS without going through the OS picker, go to `Config.plist -> Misc -> Boot` and uncheck `Show Picker`. 
 
-> To display the picker momentarily while it is disabled, hold `Esc` during boot.
+> To display the OS picker momentarily while it is disabled, hold `Esc` during boot.
 
 ## Additional Information
 ### Stock Samsung PM981 NVMe SSD 
