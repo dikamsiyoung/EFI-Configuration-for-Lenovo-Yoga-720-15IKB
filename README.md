@@ -51,7 +51,7 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
-#### (02/06/22) - Added Touchscreen SSDT, Added Auto-Brightness
+#### (02/06/22) - Updated to macOS 12.4, Added Touchscreen SSDT, Added Auto-Brightness
 
 ##### Changes
 - No need to patch System DSDT, Touchscreen enabled by default. Refer to guide to see how to remove it.
