@@ -31,12 +31,12 @@ Provided in this repository are EFI configurations for installing other operatin
 |  |  |
 | ---| --- |
 | ✅ | OpenCore v0.8.0 |
+| ✅ | Apple Power Management (enhanced with VoltageShift) |
+| ✅ | Sleep, Wake and Hibernate |
+| ✅ | Hot-swappable USB-C/Thunderbolt 3 |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Automatically Adjust Brightness (Ambient Light Sensor) |
-| ✅ | Hot-swappable USB-C/Thunderbolt 3 |
-| ✅ | Apple Power Management (enhanced with VoltageShift) |
-| ✅ | Sleep, Wake and Hibernate |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
