@@ -37,16 +37,16 @@ Provided in this repository are EFI configurations for installing other operatin
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
+| ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
 | ✅ | Speakers and Headphone jack (enhanced with Boom3D) |
 | ✅ | Built-in Camera and Microphone |
 | ✅ | Wi-Fi and Bluetooth |
-| ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
-| ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | AirDrop |
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
+| ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
