@@ -260,7 +260,7 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 
 `Update:` Touchscreen is activated by default with latest EFI version! You can skip to the next step. 
 
-To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` from `Config.plist -> ACPI`.
+> To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` from `Config.plist -> ACPI`.
 
 <strike>
   
