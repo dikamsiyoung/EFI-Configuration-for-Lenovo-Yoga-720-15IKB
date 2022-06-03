@@ -55,7 +55,7 @@ Provided in this repository are EFI configurations for installing other operatin
 
 ##### Changes
 - No need to patch System DSDT, Touchscreen enabled by default. To disable touchscreen, go [here](https://github.com/dikamsiyoung/Lenovo-Yoga-720-15IKB-EFI-OpenCore-0.8.0/blob/main/README.md#enabling-touchscreen).
-- Automatically Adjust Brightness now available in Display Preferences.
+- `Automatically Adjust Brightness` now available in Display Preferences.
 
 #### (22/04/22) - Updated to OpenCore 0.8.0
 
