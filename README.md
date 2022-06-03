@@ -43,8 +43,8 @@ Provided in this repository are EFI configurations for installing other operatin
 | ✅ | Speakers and Headphone jack (enhanced with Boom3D) |
 | ✅ | Built-in Camera and Microphone |
 | ✅ | Wi-Fi and Bluetooth |
-| ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | AirDrop |
+| ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
