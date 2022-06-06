@@ -51,6 +51,12 @@ Provided in this repository are EFI configurations for installing other operatin
 | ❌ | Fingerprint Reader |
 
 # Updates
+#### (06/06/22) - Updated to OpenCore 0.8.1
+
+##### Changes
+- Updated OpenCore Files to v0.8.0
+- Updated Kexts
+
 #### (02/06/22) - Updated to macOS 12.4, Added Touchscreen SSDT, Added Auto-Brightness
 
 ##### Changes
