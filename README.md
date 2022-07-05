@@ -295,7 +295,7 @@ Save the file as `DSDT.aml` in another directory. Copy this file to your USB ins
 
 Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
 
-> To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` from `Config.plist -> ACPI`.
+> To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` (and `DSDT.aml` if you activated multi-touch) from `Config.plist -> ACPI`.
 
 ### Enhancing Audio (Not much needed here)
 Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
