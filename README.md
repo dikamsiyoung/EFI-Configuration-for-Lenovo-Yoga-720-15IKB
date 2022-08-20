@@ -30,7 +30,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.8.1 |
+| ✅ | OpenCore v0.8.2 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
@@ -51,6 +51,12 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ❌ | Fingerprint Reader |
 
 # Updates
+#### (06/06/22) - Updated to OpenCore 0.8.2
+
+##### Changes
+- Updated OpenCore Files to v0.8.2
+- Updated Kexts
+
 #### (06/06/22) - Updated to OpenCore 0.8.1
 
 ##### Changes
@@ -289,7 +295,7 @@ Save the file as `DSDT.aml` in another directory. Copy this file to your USB ins
 
 Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures to both Touchpad and Touchscreen (Touchscreen behaves like a giant Touchpad)
 
-> To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` from `Config.plist -> ACPI`.
+> To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` (and `DSDT.aml` if you activated multi-touch) from `Config.plist -> ACPI`.
 
 ### Enhancing Audio (Not much needed here)
 Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
