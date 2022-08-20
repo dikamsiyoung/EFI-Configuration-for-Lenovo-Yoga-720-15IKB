@@ -51,6 +51,13 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ❌ | Fingerprint Reader |
 
 # Updates
+#### (20/08/22) - Updated to OpenCore 0.8.3
+
+##### Changes
+- Updated OpenCore Files to v0.8.3
+- Reverted ACPI Files to 22/04/22 Changes due to stability. Changes in 02/06/22 have been reverted. (Auto Brightness not working, default enabled touchscreen seems to only supports single touch)
+
+# Updates
 #### (06/06/22) - Updated to OpenCore 0.8.2
 
 ##### Changes
