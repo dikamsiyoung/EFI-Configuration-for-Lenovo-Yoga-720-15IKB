@@ -37,7 +37,6 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
-| ✅ | Automatically Adjust Brightness (Ambient Light Sensor) |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
