@@ -271,8 +271,8 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 > `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
 
 > `Tip:` Create a shortcut to enable or disable Turbo when you need to. You can even have Siri run it for you
-<img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185748948-455fce32-3aef-464f-aa88-93fb6601a5e9.png">
-<img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185750790-31c0cdec-cc2a-4b7d-97df-2998f6aa825a.png">
+<img width="912" alt="image" src="https://user-images.githubusercontent.com/47384524/185751488-86d4aebf-17ce-4f56-82b0-a8ae1ce5c95c.png">
+<img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185751534-9c84c692-ceba-4c0e-8ca4-de8f9e30b9be.png">
 
 ### Enabling Low Frequency Mode
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
