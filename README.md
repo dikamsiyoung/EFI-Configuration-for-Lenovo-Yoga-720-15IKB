@@ -31,6 +31,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 |  |  |
 | ---| --- |
 | ✅ | OpenCore v0.8.3 |
+| ✅ | macOS 12.5.1 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | Hot-swappable USB-C/Thunderbolt 3 |
@@ -51,7 +52,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ❌ | Fingerprint Reader |
 
 # Updates
-#### (20/08/22) - Updated to OpenCore 0.8.3
+#### (20/08/22) - Updated to OpenCore 0.8.3 and macOS 12.5.1
 
 ##### Changes
 - Updated OpenCore Files to v0.8.3
