@@ -270,7 +270,7 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 
 > `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
 
-> `Tip:` Create a shortcut to enable or disable Turbo when you need to. You even have Siri do that for you
+> `Tip:` Create a shortcut to enable or disable Turbo when you need to. You can even have Siri run it for you
 <img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185748948-455fce32-3aef-464f-aa88-93fb6601a5e9.png">
 <img width="913" alt="image" src="https://user-images.githubusercontent.com/47384524/185748863-9153cd0d-f4dc-4c43-adca-89feba1de155.png">
 
