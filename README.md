@@ -34,7 +34,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | macOS 12.5.1 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
-| ✅ | Hot-swappable USB-C/Thunderbolt 3 |
+| ✅ | Hot-swappable USB-C |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
@@ -47,6 +47,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
+| ❌ | Thunderbolt 3 Hotplug & Wake from Sleep |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
