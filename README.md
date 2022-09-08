@@ -22,6 +22,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | **RAM** | 16GB DDR4 (Stock) |
 | **Internal Display** | 4K UHD @60Hz with Touchscreen & Pen |
 | **Storage** | WD_Black SN750 NVMe SSD (Replacement) |
+| **Thunderbolt** | Intel JHL6540 Alpine Ridge 4C |
 | **Audio** | Realtek ALC236 |
 | **WLAN + Bluetooth** | Fenvi BCM94360NG (Replacement) |
 | **Touchpad** | Elantech |
