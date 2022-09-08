@@ -35,7 +35,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | macOS 12.5.1 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
-| ✅ | Hot-swappable USB-C |
+| ✅ | USB-C / Thunderbolt 3 |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
