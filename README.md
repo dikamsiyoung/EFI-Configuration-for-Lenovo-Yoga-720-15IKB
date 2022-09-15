@@ -203,11 +203,29 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 | **Intel Platform Trust** | *Disabled* |
 | **Fastboot** | *Disabled* |
 | **Always-on USB** | *Disabled* |
-| **Intel SGX** | Software-Controlled |
-| **SATA Mode** | AHCI |
-| **Intel Virtualization** | Enabled |
+| **Intel SGX** | *Software-Controlled* |
+| **SATA Mode** | *AHCI* |
+| **Intel Virtualization** | *Enabled* |
+| **THunderbolt Device Boot** | *Disable* |
 
 Now you are ready to begin the installation.
+
+### `NEW` Advanced BIOS Menu
+By unlocking Advanced menu in BIOS, you no longer have to through with the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
+
+#### For Thunderbolt
+Go to `Thunderbolt Settings`
+|  |  |
+| ------- | ------- |
+| **Security Level** | *No Security* |
+| **GPIO Force Pwr** | *[X]* |
+
+#### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
+Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
+
+`Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
+
+> This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
 
 ## 3. Installing macOS
 Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation. 
@@ -243,12 +261,16 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
 ## 5. Advanced Features
+`NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
+
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
 ## 🚨 Warning! 
 Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous settings before making any edit, compare the picture with your editted settings and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not included in this next section.
 
 ### Enhancing Power Management (CFG-Unlock)
+`NEW` No need for this section if you have configured Advanced BIOS Settings 
+
 Most BIOS come with an option to set a feature called CFG-Lock (read more about it [here](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#what-is-cfg-lock)). This feature allows an operating system gain more control over the system's power management. macOS needs such control to effect more stringent power management on your system.
 
 > `Warning!` This step can potentially brick your system. Make sure to read through this next part thoroughly before clicking on any link or downloading any software! If you downloaded the wrong version and your keyboard doesn't work: turn off your computer, take out the battery, hold down the power button for 20+ secs, reinstall the battery and turn your system on again.  
@@ -260,6 +282,8 @@ After you've cleared the CFG-Lock, restart your system and select `VerifyMsrE2` 
 Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` quirk in `Config.plist -> Kernel`. Restart macOS from the USB drive to see if it works.
 
 ### Reducing Thermal Throttling (Undervolting)
+`NEW` No need for this section if you have configured Advanced BIOS Settings
+
 Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
 
 VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
@@ -294,8 +318,7 @@ Another step towards achieving good power management is setting the lowest frequ
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
 ### Enabling Touchscreen
-
-`Update:` Touchscreen is activated by default with latest EFI version!
+`NEW` Touchscreen is activated by default with latest Monterey EFI!
   
 You have to patch your System DSDT to enable multi-touch touchscreen. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide. Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete this section:
 ```
