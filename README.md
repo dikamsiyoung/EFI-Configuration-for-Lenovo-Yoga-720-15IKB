@@ -36,8 +36,11 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | USB-C / Thunderbolt 3 |
+| ✅ | Thunderbolt 3 Wake from Sleep |
+| 🟧 | Thunderbolt 3 Hotplug (Deactivated) |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
+| ✅ | Clamshell Mode |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
@@ -48,11 +51,20 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
-| ❌ | Thunderbolt 3 Hotplug & Wake from Sleep |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
 # Updates
+
+#### (20/08/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, FIxed Thunderbolt 3 Wake from Sleep, Re-enabled Touchscreen Patch.
+
+##### Changes
+- Updated OpenCore Files to v0.8.4
+- Updated Kexts
+- Unlocked Advanced BIOS Settings and made changes there.
+- Replaced SSDT-TypeC.aml with SSDT-Z390-DESIGNARE-TB3HP-V4.aml from [here](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315)
+- Applied Thunderbolt and XHC1 patches from @tylernguyen's [build](https://github.com/tylernguyen/x1c6-hackintosh)
+
 #### (20/08/22) - Updated to OpenCore 0.8.3 and macOS 12.5.1
 
 ##### Changes
@@ -283,7 +295,7 @@ Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPU
 
 ### Enabling Touchscreen
 
-`Update:` Touchscreen is activated by default with latest EFI version! However, it doesn't support multitouch. To enable multitouch, continue with this section.
+`Update:` Touchscreen is activated by default with latest EFI version!
   
 You have to patch your System DSDT to enable multi-touch touchscreen. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide. Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete this section:
 ```
