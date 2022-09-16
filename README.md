@@ -221,11 +221,12 @@ Go to `Thunderbolt Device`
 | **Security Level** | *No Security* |
 | **GPIO3 Force Pwr** | *[X]* |
 
-![PXL_20220915_152352152](https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg)
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg">
 
-![image](https://user-images.githubusercontent.com/47384524/190539701-7548c70a-e65a-4c26-ad6c-e8a53ed9c03c.png)
-![image](https://user-images.githubusercontent.com/47384524/190539721-021fa746-aa8f-40ca-8697-a8a85b375d8c.png)
-![image](https://user-images.githubusercontent.com/47384524/190539739-4fe0d89d-b1dc-4c09-bb49-233f2d0fb22d.png)
+
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539701-7548c70a-e65a-4c26-ad6c-e8a53ed9c03c.png">
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190542447-fa1d8f9a-acf5-41e5-b6f9-fd079f7b6d4b.png">
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539739-4fe0d89d-b1dc-4c09-bb49-233f2d0fb22d.png">
 
 
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
