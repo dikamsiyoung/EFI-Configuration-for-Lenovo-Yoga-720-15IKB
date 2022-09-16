@@ -59,6 +59,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 ##### Changes
 - Updated OpenCore Files to v0.8.4
 - Updated Kexts
+- Installed YogaSMC App
 - Unlocked Advanced BIOS Settings and made changes there.
 - Enabled macOS Native Thunderbolt & USB-C
 - Replaced SSDT-TypeC.aml with SSDT-TbtOnPch-Yoga-720.aml from [here]([https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315](https://www.tonymacx86.com/threads/thunderbolt-3-hotplug-wake-after-sleep-lenovo-yoga-alpine-ridge.322104/post-2338913)
@@ -220,6 +221,11 @@ Go to `Thunderbolt Device`
 
 ![PXL_20220915_152352152](https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg)
 
+![image](https://user-images.githubusercontent.com/47384524/190539701-7548c70a-e65a-4c26-ad6c-e8a53ed9c03c.png)
+![image](https://user-images.githubusercontent.com/47384524/190539721-021fa746-aa8f-40ca-8697-a8a85b375d8c.png)
+![image](https://user-images.githubusercontent.com/47384524/190539739-4fe0d89d-b1dc-4c09-bb49-233f2d0fb22d.png)
+
+
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
 Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
 
@@ -265,7 +271,7 @@ Another step towards achieving good power management is setting the lowest frequ
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
-## 5. [😵 Deprecated] Advanced Features
+## [😵 Deprecated] 5. Advanced Features
 `NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
