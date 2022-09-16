@@ -216,7 +216,7 @@ Go to `Thunderbolt Device`
 |  |  |
 | ------- | ------- |
 | **Security Level** | *No Security* |
-| **GPIO Force Pwr** | *[X]* |
+| **GPIO3 Force Pwr** | *[X]* |
 
 ![PXL_20220915_152352152](https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg)
 
@@ -260,8 +260,7 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
-
-## 5. Advanced Features
+## 5. [😵 Deprecated] Advanced Features
 `NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
@@ -312,11 +311,6 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 > `Tip:` Create a shortcut to enable or disable Turbo when you need to. You can even have Siri run it for you
 <img width="912" alt="image" src="https://user-images.githubusercontent.com/47384524/185751488-86d4aebf-17ce-4f56-82b0-a8ae1ce5c95c.png">
 <img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185751534-9c84c692-ceba-4c0e-8ca4-de8f9e30b9be.png">
-
-### Enabling Low Frequency Mode
-Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
-
-Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
 ### Enabling Touchscreen
 `NEW` Touchscreen is activated by default with latest Monterey EFI!
