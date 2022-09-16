@@ -31,7 +31,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.8.3 |
+| ✅ | OpenCore v0.8.4 |
 | ✅ | macOS 12.6 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
