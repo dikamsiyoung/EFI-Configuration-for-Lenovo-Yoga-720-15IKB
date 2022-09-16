@@ -59,10 +59,12 @@ Provided in this repository are EFI configurations for installing other macOS on
 ##### Changes
 - Updated OpenCore Files to v0.8.4
 - Updated Kexts
-- Installed YogaSMC App
+- Installed YogaSMC App from [here](https://github.com/zhen-zen/YogaSMC)
 - Unlocked Advanced BIOS Settings and made changes there.
 - Enabled macOS Native Thunderbolt & USB-C
 - Replaced SSDT-TypeC.aml with SSDT-TbtOnPch-Yoga-720.aml from [here]([https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315](https://www.tonymacx86.com/threads/thunderbolt-3-hotplug-wake-after-sleep-lenovo-yoga-alpine-ridge.322104/post-2338913)
+- Removed VoltageShift Kexts (Used Settings in Advanced BIOS)
+- Removed DSDT patch for Touchscreen.
 
 #### (20/08/22) - Updated to OpenCore 0.8.3 and macOS 12.5.1
 
