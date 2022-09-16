@@ -35,9 +35,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | macOS 12.5.1 |
 | ✅ | Apple Power Management (enhanced with VoltageShift) |
 | ✅ | Sleep, Wake and Hibernate |
-| ✅ | USB-C / Thunderbolt 3 |
-| ✅ | Thunderbolt 3 Wake from Sleep |
-| 🟧 | Thunderbolt 3 Hotplug (Deactivated) |
+| ✅ | Native macOS USB-C & Thunderbolt 3 (Hotplug & Wake) |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
 | ✅ | Clamshell Mode |
@@ -56,14 +54,14 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
-#### (20/08/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, FIxed Thunderbolt 3 Wake from Sleep, Re-enabled Touchscreen Patch.
+#### (15/09/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, Fixed Thunderbolt 3 Hotplug & Wake from Sleep, Re-enabled Touchscreen Patch.
 
 ##### Changes
 - Updated OpenCore Files to v0.8.4
 - Updated Kexts
 - Unlocked Advanced BIOS Settings and made changes there.
-- Replaced SSDT-TypeC.aml with SSDT-Z390-DESIGNARE-TB3HP-V4.aml from [here](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315)
-- Applied Thunderbolt and XHC1 patches from @tylernguyen's [build](https://github.com/tylernguyen/x1c6-hackintosh)
+- Enabled macOS Native Thunderbolt & USB-C
+- Replaced SSDT-TypeC.aml with SSDT-TbtOnPch-Yoga-720.aml from [here]([https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315](https://www.tonymacx86.com/threads/thunderbolt-3-hotplug-wake-after-sleep-lenovo-yoga-alpine-ridge.322104/post-2338913)
 
 #### (20/08/22) - Updated to OpenCore 0.8.3 and macOS 12.5.1
 
@@ -214,11 +212,13 @@ Now you are ready to begin the installation.
 By unlocking Advanced menu in BIOS, you no longer have to through with the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
 
 #### For Thunderbolt
-Go to `Thunderbolt Settings`
+Go to `Thunderbolt Device`
 |  |  |
 | ------- | ------- |
 | **Security Level** | *No Security* |
 | **GPIO Force Pwr** | *[X]* |
+
+![PXL_20220915_152352152](https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg)
 
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
 Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
@@ -259,6 +259,7 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 >`Debug:`  Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
+
 
 ## 5. Advanced Features
 `NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
