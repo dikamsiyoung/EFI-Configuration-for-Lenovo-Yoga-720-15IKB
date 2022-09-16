@@ -38,7 +38,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Native macOS USB-C & Thunderbolt 3 (Hotplug & Wake) |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
 | ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
-| ✅ | Clamshell Mode |
+| ✅ | Clamshell Mode (with Thunderbolt) |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
