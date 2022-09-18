@@ -80,7 +80,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Continuity features working properly.
 - WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
 - Added SSDT-USBW patch to allow system wake after pressing a button once.
-- Stopped updating Big Sur Kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
+- Deprecated Big Sur EFI. Update using [Hackintool](https://github.com/headkaze/Hackintool)
 
 #### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
