@@ -66,35 +66,11 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Removed VoltageShift Kexts (Used Settings in Advanced BIOS)
 - Removed DSDT patch for Touchscreen.
 
-#### (20/08/22) - Updated to OpenCore 0.8.3 and macOS 12.5.1
-
-##### Changes
-- Updated OpenCore Files to v0.8.3
-- Reverted ACPI Files to 22/04/22 Changes due to stability. Changes in 02/06/22 have been reverted. (Auto Brightness not working, default enabled touchscreen seems to only supports single touch)
-
-#### (06/07/22) - Updated to OpenCore 0.8.2
-
-##### Changes
-- Updated OpenCore Files to v0.8.2
-- Updated Kexts
-
-#### (06/06/22) - Updated to OpenCore 0.8.1
-
-##### Changes
-- Updated OpenCore Files to v0.8.1
-- Updated Kexts
-
 #### (02/06/22) - Updated to macOS 12.4, Added Touchscreen SSDT, Added Auto-Brightness
 
 ##### Changes
 - No need to patch System DSDT, Touchscreen enabled by default. To disable touchscreen, go [here](https://github.com/dikamsiyoung/Lenovo-Yoga-720-15IKB-EFI-OpenCore-0.8.0/blob/main/README.md#enabling-touchscreen).
-- `Automatically Adjust Brightness` now available in Display Preferences.
-
-#### (22/04/22) - Updated to OpenCore 0.8.0
-
-##### Changes
-- Updated OpenCore Files to v0.8.0
-- Updated Kexts
+- `Automatically Adjust Brightness` now available in Display Preferences (doesn't work however).
 
 #### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
@@ -105,20 +81,6 @@ Provided in this repository are EFI configurations for installing other macOS on
 - WiFi speed halved due to Fenvi drivers. See issue https://github.com/acidanthera/bugtracker/issues/1532
 - Added SSDT-USBW patch to allow system wake after pressing a button once.
 - Stopped updating Big Sur Kexts. Update Kexts using [Hackintool](https://github.com/headkaze/Hackintool)
-
-#### (11/03/22) - Updated to OpenCore 0.7.9 and macOS 12.2.1
-
-##### Changes
-- Updated OpenCore files to v0.7.9
-- Updated Kexts.
-- Continuity still works one way.
-
-#### (17/12/21) - Updated to OpenCore 0.7.6 and macOS 12.1
-
-##### Changes
-- Updated OpenCore to v0.7.6
-- Updated Kexts.
-- Continuity still works one way.
 
 #### (01/12/21) - Updated to macOS 12.0.1 (Monterey)
 Successfully installed macOS Monterey with most features working. However, Continuity only works one-way (from other devices to the hack). Provided Monterey EFI folder. Installation process remains relatively the same however I have included `Monterey` portions in this guide. 
