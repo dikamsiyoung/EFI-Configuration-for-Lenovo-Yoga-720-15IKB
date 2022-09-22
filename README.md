@@ -190,6 +190,8 @@ Go to `Thunderbolt Device`
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
 Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
 
+Use -123 for CPU Undervolt and -50 for GPU and Uncore undervolt.
+
 `Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
 
 > This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
