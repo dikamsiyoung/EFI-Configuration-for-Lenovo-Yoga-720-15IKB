@@ -76,12 +76,6 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Removed VoltageShift Kexts (Used Settings in Advanced BIOS)
 - Removed DSDT patch for Touchscreen.
 
-#### (02/06/22) - Updated to macOS 12.4, Added Touchscreen SSDT, Added Auto-Brightness
-
-##### Changes
-- No need to patch System DSDT, Touchscreen enabled by default. To disable touchscreen, go [here](https://github.com/dikamsiyoung/Lenovo-Yoga-720-15IKB-EFI-OpenCore-0.8.0/blob/main/README.md#enabling-touchscreen).
-- `Automatically Adjust Brightness` now available in Display Preferences (doesn't work however).
-
 #### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
 ##### Changes
