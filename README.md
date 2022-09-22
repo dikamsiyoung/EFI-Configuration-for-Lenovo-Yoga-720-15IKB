@@ -33,12 +33,12 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ---| --- |
 | ✅ | OpenCore v0.8.4 |
 | ✅ | macOS 12.6 |
-| ✅ | Apple Power Management (enhanced with VoltageShift) |
+| ✅ | Apple Power Management |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | Native macOS USB-C & Thunderbolt 3 (Hotplug & Wake) |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
-| ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
-| ✅ | Clamshell Mode (with Thunderbolt) |
+| ✅ | HDMI 2.0 and DisplayPort via USB-C (up to 4K@60Hz) |
+| ✅ | Clamshell Mode |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
@@ -53,6 +53,16 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ❌ | Fingerprint Reader |
 
 # Updates
+
+#### (22/09/22) - Cleaned up Monterey EFI
+
+##### Changes
+- Removed YogaSMC and ECEnabler (resulted in unstable system)
+- Renamed SSDTs and added Descriptions
+- Removed Brightness Keys SSDT Patches (Using BrightnessKeys Kext)
+- Enabled Brightness Smoother in Display Device Properties
+- Merged and renamed I2C and CPU SSDT Patches
+- Added USBWakeFixup Kext
 
 #### (15/09/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, Fixed Thunderbolt 3 Hotplug & Wake from Sleep, Re-enabled Touchscreen Patch.
 
@@ -183,14 +193,6 @@ Go to `Thunderbolt Device`
 | **Security Level** | *No Security* |
 | **GPIO3 Force Pwr** | *[X]* |
 
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg">
-
-
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539701-7548c70a-e65a-4c26-ad6c-e8a53ed9c03c.png">
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190542447-fa1d8f9a-acf5-41e5-b6f9-fd079f7b6d4b.png">
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539739-4fe0d89d-b1dc-4c09-bb49-233f2d0fb22d.png">
-
-
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
 Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
 
@@ -236,7 +238,7 @@ Another step towards achieving good power management is setting the lowest frequ
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
-## [😵 Deprecated] 5. Advanced Features
+## (😵 DEPRICATED) 5. Advanced Features
 `NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
