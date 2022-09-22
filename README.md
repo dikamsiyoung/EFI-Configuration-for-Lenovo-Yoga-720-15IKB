@@ -232,8 +232,16 @@ Another step towards achieving good power management is setting the lowest frequ
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
-## (😵 DEPRICATED) 5. Advanced Features
-`NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
+.
+.
+.
+### ❌ THIS SECTION IS DEPRICATED ❌
+.
+.
+.
+
+## 5. Advanced Features
+`NEW` No need for many settings here if you have configured Advanced BIOS Settings.
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
@@ -317,6 +325,14 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 
 > **Monterey**  
 > Remove `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext` as they are not needed any longer.
+
+.
+.
+.
+### ❌ THE PREVIOUS SECTION IS DEPRICATED ❌
+.
+.
+.
 
 ## 6. Finalizing your Installation
 Up to this point, you have been booting from your USB installer. If you want to do away with the installer at boot, you can do so by copying its EFI folder to your system EFI partition.
