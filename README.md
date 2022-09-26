@@ -239,11 +239,6 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 
 >`Debug:`  Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
-### Enabling Low Frequency Mode
-Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
-
-Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
-
 ### iGPU Configurations
 Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/#terminology)
 
@@ -274,19 +269,52 @@ The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Support
 | **RM,device-id** | 709D0000 |
 | **layout-id** | 07000000 |
 
+Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
 
-You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
+### Enabling Low Frequency Mode
+Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
+
+Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
+
+### Reducing Thermal Throttling (Undervolting)
+Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
+
+VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
+
+```
+sudo chown -R root:wheel VoltageShift.kext
+```
+Follow the guide provided in the VoltageShift link above to test your settings and build a launch daemon that starts at log-in.
+
+A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -60mV (GPU) until your system becomes stable. I use a configuration of -123mV (CPU) and -50mV (GPU). Use this code to create a launch daemon with your desired voltage, turbo-boost enabled, and PL1 and PL2 set to 45 and 60 Watts respectively:
+
+```
+./voltageshift removelaunchd
+sudo ./voltageshift buildlaunchd -123 -50 -123 0 0 0 1 45 60 1 160
+```
+
+> \<CPU> and \<CPUCache> must be the same value. 
+
+> Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
+
+Reboot your system and test with Intel Power Gadget to see if your system still throttles. Run several Geekbenches and measure how well your machine performs against others in its class.
+
+> `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
+
+> `Tip:` Create a shortcut to enable or disable Turbo when you need to. You can even have Siri run it for you
+<img width="912" alt="image" src="https://user-images.githubusercontent.com/47384524/185751488-86d4aebf-17ce-4f56-82b0-a8ae1ce5c95c.png">
+<img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185751534-9c84c692-ceba-4c0e-8ca4-de8f9e30b9be.png">
 
 .
 .
 .
-### ❌ THIS SECTION IS DEPRICATED ❌
+### ❌❌❌ SECTION BELOW IS DEPRICATED ❌❌❌
 .
 .
 .
 
 ## 5. Advanced Features
-`NEW` No need for many settings here if you have configured Advanced BIOS Settings.
+`NEW` Skip this section if you have configured Advanced BIOS Settings.
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
@@ -305,37 +333,6 @@ Unfortunately, Lenovo has sealed this feature away. Luckily, this [guide](https:
 After you've cleared the CFG-Lock, restart your system and select `VerifyMsrE2` from OpenCore boot options. It should look like [this](https://drive.google.com/file/d/1tItmnh3WlMhKXUy7UtoapPLpg6mEsW-L/view). 
 
 Now boot to macOS, mount your USB installer EFI and disable `AppleXcpmCfgLock` quirk in `Config.plist -> Kernel`. Restart macOS from the USB drive to see if it works.
-
-### Reducing Thermal Throttling (Undervolting)
-`NEW` No need for this section if you have configured Advanced BIOS Settings
-
-Download Intel Power Gadget for macOS [here](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html) and test your machine on `All Thread Frequency`, see if it throttles (caps at 2.8GHz for this machine below 70 degrees). If it does, you may want to consider undervolting. Undervolting your CPU can reduce heat, improve performance, and provide longer battery life. However, if done incorrectly, it may cause an unstable system. My preferred method is using [VoltageShift](https://github.com/sicreative/VoltageShift).
-
-VoltageShift binary and kext are already provided in the link above, hence no need to build with XCode. Open Terminal in the folder of your prefered version and run this command:
-
-```
-sudo chown -R root:wheel VoltageShift.kext
-```
-Follow the guide provided in the VoltageShift link above to test your settings and build a launch daemon that starts at log-in.
-
-A good starting voltage for this machine \<CPU> \<GPU> \<CPUCache> is -110 -50 -110. Experiment with various settings below -125mV (CPU) and -90mV (GPU) until your system becomes stable. Use this code to create a launch daemon with your desired voltage, turbo-boost enabled, and PL1 and PL2 set to 45 and 60 Watts respectively:
-
-```
-./voltageshift removelaunchd
-sudo ./voltageshift buildlaunchd -110 -50 -110 0 0 0 1 45 60 1 160
-```
-
-> \<CPU> and \<CPUCache> must be the same value. 
-
-> Ensure that `csr-active-config` in `Config.plist -> NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82` is greater than `00000000` (SIP Enabled). I've set it partially enabled without kext signing `03000000`. Check this [part](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html#disabling-sip) of the OpenCore Guide to see the different settings
-
-Reboot your system and test with Intel Power Gadget to see if your system still throttles. Run several Geekbenches and measure how well your machine performs against others in its class.
-
-> `Debug:`  If turbo fails to load on boot, add `VoltageShift.kext` to `EFI\OC\kexts` and install it to `Config.plist -> Kernel -> Add`.
-
-> `Tip:` Create a shortcut to enable or disable Turbo when you need to. You can even have Siri run it for you
-<img width="912" alt="image" src="https://user-images.githubusercontent.com/47384524/185751488-86d4aebf-17ce-4f56-82b0-a8ae1ce5c95c.png">
-<img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185751534-9c84c692-ceba-4c0e-8ca4-de8f9e30b9be.png">
 
 ### Enabling Touchscreen
 `NEW` Touchscreen is pre-activated in the latest Monterey EFI!
@@ -365,16 +362,10 @@ Consider installing [BetterTouchTool](https://folivora.ai/) to add more gestures
 
 > To disable touchscreen, remove `SSDT-I2C1_SPED.aml` & `SSDT-I2C2_SPED.aml` (and `DSDT.aml` if you activated multi-touch) from `Config.plist -> ACPI`.
 
-### Enhancing Audio (Not much needed here)
-Your audio should be working just fine, however not compared to the Dolby Atmos you are most likely used to. Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
-
-> **Monterey**  
-> Remove `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext` as they are not needed any longer.
-
 .
 .
 .
-### ❌ THE PREVIOUS SECTION IS DEPRICATED ❌
+### ❌❌❌ THE PREVIOUS SECTION IS DEPRICATED ❌❌❌
 .
 .
 .
