@@ -51,12 +51,14 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
+| ❌ | DRM Content (Use third-party browsers) |
 
 # Updates
 
-#### (22/09/22) - Cleaned up Monterey EFI
+#### (26/09/22) - Cleaned up Repository
 
 ##### Changes
+- Removed Big Sur EFI
 - Removed YogaSMC and ECEnabler (resulted in unstable system)
 - Renamed SSDTs and added Descriptions
 - Removed Brightness Keys SSDT Patches (Using BrightnessKeys Kext)
@@ -186,11 +188,21 @@ Go to `Thunderbolt Device`
 | ------- | ------- |
 | **Security Level** | *No Security* |
 | **GPIO3 Force Pwr** | *[X]* |
+| **Wake from Thunderbolt Devices** * | *[ ]* |
+
+> `DEBUG` Depending on your use case, you can enable `Wake from Thunderbolt Devices`. However, I use a Thunderbolt dock and wouldn't want unplugging my phone to wake the system.
+
+> `DEBUG` Loading the Thunderbolt Bus is sort of a hit and miss after restarting. Safest bet is to shutdown and power on PC instead. Alternatively, you can boot to Windows and restart to macOS.
+
+> `DEBUG` Displays connected to Thunderbolt docks usually start after on sleep/wake cycle on this Thunderbolt Card. Sometimes it loads immediately when the dock is not connected prior to boot.
+
 
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
-Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override). Use -123mV for CPU Undervolt and -50mV for GPU and Uncore undervolt.
+Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override). Use -123mV for CPU undervolt and -50mV for GPU and Uncore undervolt.
 
 `Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
+
+> `DEBUG` iGPU doesn't play DRM content (e.g Prime Video and Apple TV) on native macOS apps and browsers. You can use third-party browsers like Chrome, Firefox and Opera to view them.
 
 > This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
 
@@ -218,6 +230,8 @@ sudo pmset -a powernap 0
 sudo pmset -a proximitywake 0
 sudo pmset -b tcpkeepalive 0      //Optional
 ```
+RTC Wake is disabled in the latest Monterey EFI. RTC Wake allows macOS to perform maintenance tasks for a few minutes every 2 hours. To enable it, open `config.plist`, go to `Kernel` -> `Patch` and enable patch with comment: `Disable RTC wake scheduling`.
+
 ### USB Mapping
 In direct conjunction with enabling Sleep and Wake, you have to define your USB ports to macOS to have a bug-free sleep cycle. Follow this [part](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html) of the OpenCore guide to map your USB. 
 
@@ -229,6 +243,37 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
+
+### iGPU Configurations
+Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/#terminology)
+
+**iGPU Device Properties (0x2,0x0)**:
+|  |  |
+| ------- | ------- |
+| **AAPL,ig-platform-id** | 00001B59 |
+| **Enable-max-pixel-clock-override** | 01000000 |
+| **Enable-backlight-smoother** | 01000000 |
+| **Disable-external-gpu** | 01000000 |
+| **Framebuffer-patch-enable** | 01000000 |
+| **Framebuffer-con1-enable** | 01000000 |
+| **Framebuffer-con1-alldata** | 01050A00 00040000 87010000 |
+| **Framebuffer-con2-enable** | 01000000 |
+| **Framebuffer-con2-alldata** | 02040A00 00040000 87010000 |
+| **Framebuffer-unifiedmem** * | 00000080 |
+
+`Framebuffer-unifiedmem` sets the available VRAM for your system. Read the [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md) for more information. The setting in this EFI is 2048MB
+
+`Framebuffer-conX-alldata` specifies the personality of each external display connected to the device. Connectors are set to DisplayPort. In order to use Intel HD 630's full 3 monitor support with max 4K@60Hz (2 monitors + Internal Display for Laptop), we need to have a combination of at least two display ports (HDMI, Thunderbolt, DisplayPort, or eDP). However, since this laptop only has one Thunderbolt port (has no HDMI typical on laptops), we can only have one monitor configuration up to 4096x2304@60Hz via Thunderbolt 3 (i.e either one 4K, one 2K, or 1K + 1K with a Thunderbolt Dock) according to [Intel Specs](https://www.intel.com/content/www/us/en/support/articles/000025675/graphics.html).
+
+### Audio Configurations
+The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Supported Codecs List](https://github.com/acidanthera/applealc/wiki/supported-codecs). The supported `Layout ID` on this machine is: 15 (translates to `07000000` Hex). This setting enables Intel HDMI Audio for external displays.
+
+**Audio Device Properties (0x1F,0x3):**
+|  |  |
+| ------- | ------- |
+| **RM,device-id** | 709D0000 |
+| **layout-id** | 07000000 |
+
 
 You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
 
@@ -293,7 +338,7 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 <img width="914" alt="image" src="https://user-images.githubusercontent.com/47384524/185751534-9c84c692-ceba-4c0e-8ca4-de8f9e30b9be.png">
 
 ### Enabling Touchscreen
-`NEW` Touchscreen is activated by default with latest Monterey EFI!
+`NEW` Touchscreen is pre-activated in the latest Monterey EFI!
   
 You have to patch your System DSDT to enable multi-touch touchscreen. Refer to this [part](https://dortania.github.io/Getting-Started-With-ACPI/#a-quick-explainer-on-acpi) of the OpenCore Guide. Download this decompiler [MaciASL](https://github.com/acidanthera/MaciASL/releases) and open it. It should open your `System DSDT`. Search using `CMD + F` for `TPNL` and scroll down slowly within its french bracket till you see `Method(_CRS, 0, Serialized)`. Delete this section:
 ```
