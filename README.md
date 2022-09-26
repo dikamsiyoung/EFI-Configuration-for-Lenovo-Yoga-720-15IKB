@@ -33,12 +33,12 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ---| --- |
 | ✅ | OpenCore v0.8.4 |
 | ✅ | macOS 12.6 |
-| ✅ | Apple Power Management (enhanced with VoltageShift) |
+| ✅ | Apple Power Management |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | Native macOS USB-C & Thunderbolt 3 (Hotplug & Wake) |
 | ✅ | 4K@60Hz 24-bit Color Internal Display |
-| ✅ | HDMI 2.0 and DisplayPort (up to 4K@60Hz) |
-| ✅ | Clamshell Mode (with Thunderbolt) |
+| ✅ | HDMI 2.0 and DisplayPort via USB-C (up to 4K@60Hz) |
+| ✅ | Clamshell Mode |
 | ✅ | Hotkeys (Brightness, Volume, and Fn Keys) |
 | ✅ | macOS Touchpad Gestures (enhanced with BetterTouchTool) |
 | ✅ | Multipoint Touchscreen and Pen Support |
@@ -54,6 +54,16 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
+#### (22/09/22) - Cleaned up Monterey EFI
+
+##### Changes
+- Removed YogaSMC and ECEnabler (resulted in unstable system)
+- Renamed SSDTs and added Descriptions
+- Removed Brightness Keys SSDT Patches (Using BrightnessKeys Kext)
+- Enabled Brightness Smoother in Display Device Properties
+- Merged and renamed I2C and CPU SSDT Patches
+- Added USBWakeFixup Kext
+
 #### (15/09/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, Fixed Thunderbolt 3 Hotplug & Wake from Sleep, Re-enabled Touchscreen Patch.
 
 ##### Changes
@@ -62,15 +72,9 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Installed YogaSMC App from [here](https://github.com/zhen-zen/YogaSMC)
 - Unlocked Advanced BIOS Settings and made changes there.
 - Enabled macOS Native Thunderbolt & USB-C
-- Replaced SSDT-TypeC.aml with SSDT-TbtOnPch-Yoga-720.aml from [here]([https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2418#post-2158315](https://www.tonymacx86.com/threads/thunderbolt-3-hotplug-wake-after-sleep-lenovo-yoga-alpine-ridge.322104/post-2338913)
+- Replaced SSDT-TypeC.aml with SSDT-TbtOnPch-Yoga-720.aml from [here](https://www.tonymacx86.com/threads/thunderbolt-3-hotplug-wake-after-sleep-lenovo-yoga-alpine-ridge.322104/post-2338913)
 - Removed VoltageShift Kexts (Used Settings in Advanced BIOS)
 - Removed DSDT patch for Touchscreen.
-
-#### (02/06/22) - Updated to macOS 12.4, Added Touchscreen SSDT, Added Auto-Brightness
-
-##### Changes
-- No need to patch System DSDT, Touchscreen enabled by default. To disable touchscreen, go [here](https://github.com/dikamsiyoung/Lenovo-Yoga-720-15IKB-EFI-OpenCore-0.8.0/blob/main/README.md#enabling-touchscreen).
-- `Automatically Adjust Brightness` now available in Display Preferences (doesn't work however).
 
 #### (14/04/22) - Updated to macOS 12.3.1, Changed WiFi/Bluetooth Card, Fixed Wake-from-Sleep with One Key Press, Deprecated Big Sur EFI
 
@@ -174,7 +178,7 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 Now you are ready to begin the installation.
 
 ### `NEW` Advanced BIOS Menu
-By unlocking Advanced menu in BIOS, you no longer have to through with the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
+By unlocking Advanced menu in BIOS, you no longer have to go through the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
 
 #### For Thunderbolt
 Go to `Thunderbolt Device`
@@ -183,16 +187,8 @@ Go to `Thunderbolt Device`
 | **Security Level** | *No Security* |
 | **GPIO3 Force Pwr** | *[X]* |
 
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190538268-d26515e5-60c3-4c2b-9b1b-9ad447c4ce8d.jpeg">
-
-
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539701-7548c70a-e65a-4c26-ad6c-e8a53ed9c03c.png">
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190542447-fa1d8f9a-acf5-41e5-b6f9-fd079f7b6d4b.png">
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/47384524/190539739-4fe0d89d-b1dc-4c09-bb49-233f2d0fb22d.png">
-
-
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
-Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override)
+Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override). Use -123mV for CPU Undervolt and -50mV for GPU and Uncore undervolt.
 
 `Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
 
@@ -229,15 +225,23 @@ After following the instructions, `USBmap.kext` would be created. Install that k
 
 >`Debug:`  Always-on USB also causes sleep problems in macOS. Ensure it is disabled in your BIOS Configuration.
 
-You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
-
 ### Enabling Low Frequency Mode
 Another step towards achieving good power management is setting the lowest frequency your CPU will output when idle. The processor in this machine can handle a low power state of 800MHz. I recommend [acidanthera](https://github.com/acidanthera)'s [CPUFriend](https://github.com/acidanthera/CPUFriend/releases) kext and [corpnewt](https://github.com/corpnewt)'s [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) data provider kext to achieve this.
 
 Download and install `CPUFriend.kext` to your USB installer EFI folder. Run `CPUFriendFriend.command` and follow the instructions on-screen. Enter `08` for Low Frequency Mode to set it to 800MHz. After you've finished configuring your power options, `CPUFriendDataProvider.kext` will be created in the `Results` folder. Install that kext to your USB installer EFI folder. Reboot your system using the USB installer and launch Intel Power Gadget to confirm `CoreMin` under the `Frequency` tab is around 800MHz (0.8GHz).
 
-## [😵 Deprecated] 5. Advanced Features
-`NEW` No need for many settings here if you have configured Advanced BIOS Settings (Asides from `Enable Low Frequency Mode`)
+You now have a 90% working Hackintosh and quite frankly could go on without the next few steps as those require advanced knowledge, patience, and the ability to follow guides thoroughly.
+
+.
+.
+.
+### ❌ THIS SECTION IS DEPRICATED ❌
+.
+.
+.
+
+## 5. Advanced Features
+`NEW` No need for many settings here if you have configured Advanced BIOS Settings.
 
 Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
 
@@ -321,6 +325,14 @@ Your audio should be working just fine, however not compared to the Dolby Atmos 
 
 > **Monterey**  
 > Remove `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext` as they are not needed any longer.
+
+.
+.
+.
+### ❌ THE PREVIOUS SECTION IS DEPRICATED ❌
+.
+.
+.
 
 ## 6. Finalizing your Installation
 Up to this point, you have been booting from your USB installer. If you want to do away with the installer at boot, you can do so by copying its EFI folder to your system EFI partition.
