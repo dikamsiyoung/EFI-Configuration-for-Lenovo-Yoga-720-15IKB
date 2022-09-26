@@ -182,6 +182,8 @@ Now you are ready to begin the installation.
 ### `NEW` Advanced BIOS Menu
 By unlocking Advanced menu in BIOS, you no longer have to go through the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
 
+> This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
+
 #### For Thunderbolt
 Go to `Thunderbolt Device`
 |  |  |
@@ -203,8 +205,6 @@ Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hac
 `Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
 
 > `DEBUG` iGPU doesn't play DRM content (e.g Prime Video and Apple TV) on native macOS apps and browsers. You can use third-party browsers like Chrome, Firefox and Opera to view them.
-
-> This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
 
 ## 3. Installing macOS
 Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation. 
