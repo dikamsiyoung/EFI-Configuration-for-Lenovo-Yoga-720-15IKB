@@ -55,7 +55,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
-#### (22/09/22) - Cleaned up Repository
+#### (26/09/22) - Cleaned up Repository
 
 ##### Changes
 - Removed Big Sur EFI
