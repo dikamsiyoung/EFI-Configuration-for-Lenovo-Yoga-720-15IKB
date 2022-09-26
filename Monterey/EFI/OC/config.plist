@@ -515,8 +515,6 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built-In</string>
 				<key>RM,device-id</key>
 				<data>cJ0AAA==</data>
 				<key>device_type</key>
@@ -524,7 +522,7 @@
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<integer>15</integer>
+				<data>BwAAAA==</data>
 				<key>model</key>
 				<string>CM238 HD Audio Controller</string>
 			</dict>
