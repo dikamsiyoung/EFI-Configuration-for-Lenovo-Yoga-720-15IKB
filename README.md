@@ -48,9 +48,9 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ✅ | Continuity: Sidecar, Universal Clipboard and HandOff |
 | ✅ | Monterey Features: Universal Control, AirPlay to Mac |
 | ✅ | iServices (iMessage, FaceTime, and App Store) |
-| 🟧 | Bluetooth & WLAN Wake (Works only with USB Receiver) |
-| 🟧 | Dual-Monitor Setup (not working with 2K+ & 1K setup) |
 | 🟧 | Streaming DRM Content (Works on third-party browsers) |
+| 🟧 | Dual-Monitor Setup (could work with 1080p setup) |
+| 🟧 | Wake from Bluetooth/WLAN (Works with USB Receiver) |
 | ❌ | Dedicated Graphics (NVIDIA GTX 1050) |
 | ❌ | Fingerprint Reader |
 
