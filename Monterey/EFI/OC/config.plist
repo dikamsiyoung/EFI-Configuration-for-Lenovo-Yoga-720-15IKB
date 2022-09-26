@@ -32,14 +32,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Spoof Discrete Graphics</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-Discrete_Spoof.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Loads Apple EC0 Drivers</string>
 				<key>Enabled</key>
 				<true/>
@@ -542,8 +534,6 @@
 				<string>0x591b0000, 0105 instead of 0306, HDMI</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>AAAbWQ==</data>
-				<key>device-id</key>
-				<data>ElkAAA==</data>
 				<key>disable-external-gpu</key>
 				<data>AQAAAA==</data>
 				<key>enable-backlight-smoother</key>
@@ -981,7 +971,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data></data>
 				<key>Identifier</key>
