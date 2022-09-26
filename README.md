@@ -178,7 +178,7 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 Now you are ready to begin the installation.
 
 ### `NEW` Advanced BIOS Menu
-By unlocking Advanced menu in BIOS, you no longer have to through with the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
+By unlocking Advanced menu in BIOS, you no longer have to go through the `Advanced Features` section in this guide. Simply watch this [video](https://www.youtube.com/watch?v=R0ctG-DBSEE) to enter Advanced BIOS menu (make sure your charger is plugged in or it won't work) and follow through with the rest of this section when you have access to it.
 
 #### For Thunderbolt
 Go to `Thunderbolt Device`
