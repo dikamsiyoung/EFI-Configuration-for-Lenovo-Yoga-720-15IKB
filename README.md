@@ -138,27 +138,26 @@ Clone this repository, unzip the file and copy the EFI folder of your preferred 
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`. 
 
-- #### PlatformInfo
+#### PlatformInfo
 You need to set the Serial Number, UUID, MLB, and ROM for your hackintosh. This can all be set in the `Config.plist` located in `EFI\OC\Config.plist`. Open the file with OpenCore Configurator and navigate to `PlatformInfo -> DataHub - Generic - PlatformNVRAM`. Select the closest MacBook version to your processor from the list at the bottom. 
 
 You can set the correct value for your ROM under `Generic` tab if you have the Mac Address of your Wi-Fi module. If you don't have it, follow [this](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom) part of the OpenCore Guide. This step is essential in order to have iServices work immediately. Follow this [guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) if iServices don't work immediately after installation.
 
 After setting your SMBIOS, while still in OpenCore Configurator, head over to `Kernel` and uncheck `CustomSMBIOSGUID` quirk.
 
-- #### Kernel: Wi-Fi and Bluetooth
-If you are using the stock Intel Wi-Fi and Bluetooth module, you can skip this step.  
+#### Wi-Fi
+`Intel:` Ensure `AirportItwlm.kext` is loaded into `EFI\OC\Kexts` and `config.plist` -> `Kernel` (Remove Brcm Kexts)
 
-However, if you are using a Broadcom module (check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules), make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) and [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM/releases). Copy:  
-- `AirportBrcmFixup.kext`  
-- `BrcmBluetoothInjector.kext`  
-- `BrcmFirmwareData.kext`  
-- `BrcmPatchRAM3.kext`  
+`Broadcom Card:` Check this [list](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) for macOS compatible modules. Make sure to download acidanthera's BRCM kexts for [Wi-Fi](https://github.com/acidanthera/AirportBrcmFixup/releases) 
 
-to `EFI\OC\Kexts` and also to `Config.plist -> Kernel -> Add`. Also, remove Intel kexts: `AirportItlwm`, `IntelBluetoothInjector`, and `IntelBluetoothFirmware` from `EFI\OC\Kexts` and `Config.plist`
+Ensure `AirportBrcmFixup.kext` is loaded into `EFI\OC\Kexts` and `Config.plist -> Kernel -> Add` (Remove Intel Kexts)
 
-> **Monterey**  
-> Ensure that `IntelBluetoothInjector.kext` or `BrcmBluetoothInjector.kext` is replaced with `BluetoolFixup.kext`. This comes with [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
-> Also, make sure all kexts are updated then set `MinKernel` to 21.00.0 and `MaxKernel` to 20.99.9 in order to prevent Big Sur kexts from loading into Monterey.
+#### Bluetooth
+Download `BluetoolFixup.kext` found in [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases).
+
+`Intel Card:` Ensure `IntelBluetoothFirmware.kext` and `BluetoolFixup.kext` is loaded into `EFI\OC\Kexts` and `config.plist` -> `Kernel` (Remove Brcm Kexts)
+
+`Broadcom Card:` Ensure `BrcmPatchRAM3.kext`, `BrcmFirmwareData.kext` , and `BluetoolFixup.kext` are loaded into `EFI\OC\Kexts` and `config.plist` -> `Kernel` (Remove Intel Kexts)
 
 > **Fenvi BCM94360NG Wi-Fi Card**  
 > If you have opted to use the Fenvi BCM94360NG Wi-Fi card, there is no need to use any Wi-Fi or Bluetooth kext as most macOS Continuity features work out-of-the-box. I recommend removing all Wi-Fi and Bluetooth kexts from your EFI config. However, if you opt to use the Fenvi BCM94360NG Wi-Fi card, you will only be able to use half the speed of your internet connection on macOS due to driver incompatibilities.
@@ -185,27 +184,26 @@ By unlocking Advanced menu in BIOS, you no longer have to go through the `Advanc
 
 > This method is cleaner as you can always Restore Defaults and start over if you make a mistake.
 
-#### For Thunderbolt
-Go to `Thunderbolt Device`
-|  |  |
-| ------- | ------- |
-| **Security Level** | *No Security* |
-| **GPIO3 Force Pwr** | *[X]* |
-| **Wake from Thunderbolt Devices** * | *[ ]* |
-
-> `DEBUG` Depending on your use case, you can enable `Wake from Thunderbolt Devices`. However, I use a Thunderbolt dock and wouldn't want unplugging my phone to wake the system.
-
-> `DEBUG` Loading the Thunderbolt Bus is sort of a hit and miss after restarting. Safest bet is to shutdown and power on PC instead. Alternatively, you can boot to Windows and restart to macOS.
-
-> `DEBUG` Displays connected to Thunderbolt docks usually start after on sleep/wake cycle on this Thunderbolt Card. Sometimes it loads immediately when the dock is not connected prior to boot.
-
-
 #### For Power Management, 4K Graphics Output, Undervolting and Turbo Mode
 Follow @tylernguyen's instructions [here](https://tylernguyen.github.io/x1c6-hackintosh/BIOS/settings-for-modded-BIOS/#edid-override). Use -123mV for CPU undervolt and -50mV for GPU and Uncore undervolt.
 
 `Note` The location of the parent settings may be different (as this is a different laptop) but they still have the same content once located.
 
 > `DEBUG` iGPU doesn't play DRM content (e.g Prime Video and Apple TV) on native macOS apps and browsers. You can use third-party browsers like Chrome, Firefox and Opera to view them.
+
+#### For Thunderbolt
+Go to `Thunderbolt Device`
+|  |  |
+| ------- | ------- |
+| **Security Level** | *No Security* |
+| **GPIO3 Force Pwr** | *[X]* |
+| **Wake from Thunderbolt Devices** * | *[  ]* |
+
+`NOTE` Depending on your use case, you can enable `Wake from Thunderbolt Devices`. However, I use a Thunderbolt dock and wouldn't want unplugging my phone to wake the system.
+
+> `DEBUG` Loading the Thunderbolt Bus is sort of a hit and miss after restarting. Safest bet is to shutdown and power on PC instead. Alternatively, you can boot to Windows and restart to macOS.
+
+> `DEBUG` Displays connected to Thunderbolt docks usually start after on sleep/wake cycle on this Thunderbolt Card. Sometimes it loads immediately when the dock is not connected prior to boot.
 
 ## 3. Installing macOS
 Refer to this [guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) during installation. 
@@ -265,8 +263,8 @@ Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dort
 The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Supported Codecs List](https://github.com/acidanthera/applealc/wiki/supported-codecs). The supported `Layout ID` on this machine is: 15 (Integer). This setting enables Intel HDMI Audio for external displays.
 
 **Audio Device Properties (0x1F,0x3):**
-|  |  |
-| ------- | ------- |
+|  |  |  |
+| ------- | ------- | ------- |
 | **RM,device-id** | 709D0000 | Data |
 | **layout-id** | 15 | Number |
 
@@ -398,6 +396,7 @@ This SSD (or more precise the Phoenix controller it uses) is known to cause rand
 - [RehabMan](https://github.com/rehabman) for providing many laptop hotpatches and guides
 - [corpnewt](https://github.com/corpnewt) for providing many of the scripts required to conveniently install macOS
 - [knnspeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/) for providing ComboJack, well-explained hotpatches and a working USB-C hot plug solution
+- [CaseySJ](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/page-2078#post-2121513) for Thunderbolt 3 bus on Alpine Ridge without firmware patching.
 - [jaromeyer](https://github.com/jaromeyer) for providing detailed installation guides and configurations for the XPS 9570
 - [frbuccoliero](https:/frbuccoliero) for PM981 related testing and extending the guide
 - [mr-prez](https://github.com/mr-prez) for the Native Power Management guide
@@ -407,6 +406,7 @@ This SSD (or more precise the Phoenix controller it uses) is known to cause rand
 - [openintelwireless](https://github.com/OpenIntelWireless) for providing Intel Wi-Fi and Bluetooth Kexts
 - [wouter](https://www.reddit.com/user/Wouter_001/) for his CFG-Unlock Guide
 - [jiashun zheng](https://jiashun-zheng.medium.com/) for his Yoga 720 Medium Guide
+- [tylernguyen](https://tylernguyen.github.io/x1c6-hackintosh) for ThinkPad X1C6 Guide
 - [jlp](https://www.tonymacx86.com/members/jlp.123582/) and [thefiredragon](https://www.tonymacx86.com/members/thefiredragon.1412039/) for compiling [EFI](https://www.tonymacx86.com/threads/yoga-720-try-out-high-sierra-issues.227222/page-22) for Yoga 720 15-IKB
 - [Baio1977](https://github.com/baio1977) for Touchscreen SSDT.
 - Everyone else involved in Hackintosh development
