@@ -262,7 +262,7 @@ Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dort
 `Framebuffer-conX-alldata` specifies the personality of each external display connected to the device. Connectors are set to DisplayPort. In order to use Intel HD 630's full 3 monitor support with max 4K@60Hz (2 monitors + Internal Display for Laptop), we need to have a combination of at least two display ports (HDMI, Thunderbolt, DisplayPort, or eDP). However, since this laptop only has one Thunderbolt port (has no HDMI typical on laptops), we can only have one monitor configuration up to 4096x2304@60Hz via Thunderbolt 3 (i.e either one 4K, one 2K, or 1K + 1K with a Thunderbolt Dock) according to [Intel Specs](https://www.intel.com/content/www/us/en/support/articles/000025675/graphics.html).
 
 ### Audio Configurations
-The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Supported Codecs List](https://github.com/acidanthera/applealc/wiki/supported-codecs). The supported `Layout ID` on this machine is: 15 (translates to `07000000` Hex). This setting enables Intel HDMI Audio for external displays.
+The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Supported Codecs List](https://github.com/acidanthera/applealc/wiki/supported-codecs). The supported `Layout ID` on this machine is: 15 (Integer). This setting enables Intel HDMI Audio for external displays.
 
 **Audio Device Properties (0x1F,0x3):**
 |  |  |
