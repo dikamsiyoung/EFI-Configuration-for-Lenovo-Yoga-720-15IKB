@@ -267,8 +267,8 @@ The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Support
 **Audio Device Properties (0x1F,0x3):**
 |  |  |
 | ------- | ------- |
-| **RM,device-id** | 709D0000 |
-| **layout-id** | 07000000 |
+| **RM,device-id** | 709D0000 | Data |
+| **layout-id** | 15 | Number |
 
 Consider installing [Boom3D](https://www.globaldelight.com/boom/boom-ppc.php?utm_source=google&utm_medium=cpc&utm_campaign=extension3) to optimize your sound.
 
