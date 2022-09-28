@@ -522,7 +522,7 @@
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<data>BwAAAA==</data>
+				<integer>15</integer>
 				<key>model</key>
 				<string>CM238 HD Audio Controller</string>
 			</dict>
