@@ -64,7 +64,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Renamed SSDTs and added Descriptions
 - Removed Brightness Keys SSDT Patches (Using BrightnessKeys Kext)
 - Enabled Brightness Smoother in Display Device Properties
-- Merged and renamed I2C and CPU SSDT Patches
+- Merged and renamed I2C, THunderbolt and CPU SSDT Patches
 - Added USBWakeFixup Kext
 
 #### (15/09/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, Fixed Thunderbolt 3 Hotplug & Wake from Sleep, Re-enabled Touchscreen Patch.
@@ -248,6 +248,7 @@ Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dort
 | **Enable-max-pixel-clock-override** | 01000000 |
 | **Enable-backlight-smoother** | 01000000 |
 | **Disable-external-gpu** | 01000000 |
+| **Force-online** | 01000000 |
 | **Framebuffer-patch-enable** | 01000000 |
 | **Framebuffer-con1-enable** | 01000000 |
 | **Framebuffer-con1-alldata** | 01050A00 00040000 87010000 |
@@ -255,9 +256,13 @@ Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dort
 | **Framebuffer-con2-alldata** | 02040A00 00040000 87010000 |
 | **Framebuffer-unifiedmem** * | 00000080 |
 
-`Framebuffer-unifiedmem` sets the available VRAM for your system. Read the [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md) for more information. The setting in this EFI is 2048MB
+`Framebuffer-unifiedmem` sets the available VRAM for your system. Read the [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md) for more information. The setting in this EFI is 2048MB. It is scarcely noted in forums that Intel HD 630 cannot write above this value.
 
-`Framebuffer-conX-alldata` specifies the personality of each external display connected to the device. Connectors are set to DisplayPort. In order to use Intel HD 630's full 3 monitor support with max 4K@60Hz (2 monitors + Internal Display for Laptop), we need to have a combination of at least two display ports (HDMI, Thunderbolt, DisplayPort, or eDP). However, since this laptop only has one Thunderbolt port (has no HDMI typical on laptops), we can only have one monitor configuration up to 4096x2304@60Hz via Thunderbolt 3 (i.e either one 4K, one 2K, or 1K + 1K with a Thunderbolt Dock) according to [Intel Specs](https://www.intel.com/content/www/us/en/support/articles/000025675/graphics.html).
+`Framebuffer-conX-alldata` specifies the personality of each external display connected to the device. Connectors are set to DisplayPort. In order to use Intel HD 630's full 3 monitor support with max 4K@60Hz (2 monitors + Internal Display for Laptop), we need to have a combination of at least two display ports (HDMI, Thunderbolt, DisplayPort, or eDP). However, since this laptop only has one Thunderbolt port (has no HDMI typical on laptops), we can only have monitor configurations up to 4096x2304@60Hz via Thunderbolt 3 (i.e either one 4K, one 2K, or 1K + 1K with a Thunderbolt Dock) according to [Intel Specs](https://www.intel.com/content/www/us/en/support/articles/000025675/graphics.html).
+
+`Force-online` forces all displays to activate at wake. Useful when working in clamshell mode.
+
+Read more about [WhateverGreen Flags](https://github.com/acidanthera/WhateverGreen)
 
 ### Audio Configurations
 The audio codec on the Yoga 720 matches ALC236 as seen in acidanthera's [Supported Codecs List](https://github.com/acidanthera/applealc/wiki/supported-codecs). The supported `Layout ID` on this machine is: 15 (Integer). This setting enables Intel HDMI Audio for external displays.
