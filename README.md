@@ -320,8 +320,6 @@ Reboot your system and test with Intel Power Gadget to see if your system still 
 ## 5. Advanced Features
 `NEW` Skip this section if you have configured Advanced BIOS Settings.
 
-Great choice to continue further! Why not since you've already come all this way. All that is left is to get a perfect Power Management going on, activate Touchscreen and install third-party applications to enhance Audio, Touchpad gestures and Thermal Throttling. 
-
 ## 🚨 Warning! 
 Remember, be patient and read through all the guides before you begin to tweak your PC. If possible, take a picture of your previous settings before making any edit, compare the picture with your editted settings and the guide before you hit the 'OK' button. Ensure you don't tweak anything else in your BIOS that is not included in this next section.
 
