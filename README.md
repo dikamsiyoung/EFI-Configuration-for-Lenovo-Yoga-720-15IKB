@@ -251,9 +251,9 @@ Read more about iGPU configurations in [OpenCore iGPU Post Install](https://dort
 | **Force-online** | 01000000 |
 | **Framebuffer-patch-enable** | 01000000 |
 | **Framebuffer-con1-enable** | 01000000 |
-| **Framebuffer-con1-alldata** | 01050A00 00040000 87010000 |
+| **Framebuffer-con1-alldata** | 01050A00 00080000 87010000 |
 | **Framebuffer-con2-enable** | 01000000 |
-| **Framebuffer-con2-alldata** | 02040A00 00040000 87010000 |
+| **Framebuffer-con2-alldata** | 02040A00 00080000 87010000 |
 | **Framebuffer-unifiedmem** * | 00000080 |
 
 `Framebuffer-unifiedmem` sets the available VRAM for your system. Read the [WhateverGreen FAQ](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md) for more information. The setting in this EFI is 2048MB. It is scarcely noted in forums that Intel HD 630 cannot write above this value.
