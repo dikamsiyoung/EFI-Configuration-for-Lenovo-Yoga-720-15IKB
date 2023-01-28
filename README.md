@@ -31,7 +31,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.8.4 |
+| ✅ | OpenCore v0.8.8 |
 | ✅ | macOS 12.6 |
 | ✅ | Apple Power Management |
 | ✅ | Sleep, Wake and Hibernate |
@@ -57,7 +57,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
-#### (28/01/23) - Updated to moacOS Ventura 13.2
+#### (28/01/23) - Updated to OpenCore 0.8.8 and moacOS Ventura 13.2
 
 ##### Changes
 - Renamed folder to `EFI`. EFI Config should work with both Monterey & Ventura.
