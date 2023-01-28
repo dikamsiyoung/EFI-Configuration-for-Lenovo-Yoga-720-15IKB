@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/47384524/144275381-12bd6ee1-ced8-4a4f-a5df-9aad0437952d.png)
 
 # Introduction
-Provided in this repository are EFI configurations for installing other macOS on Lenovo Yoga 720-15IKB using OpenCore. This EFI repository has been optimized to run macOS Big Sur 11.5.2 and above.
+Provided in this repository are EFI configurations for installing other macOS on Lenovo Yoga 720-15IKB using OpenCore. This EFI repository has been optimized to run macOS Monterey and Ventura.
 
 ###
 ###
@@ -57,6 +57,14 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
+#### (28/01/23) - Updated to moacOS Ventura 13.2
+
+##### Changes
+- Renamed folder to `EFI`. EFI Config should work with both Monterey & Ventura.
+- Removed `Force-Online` iGPU Device Property, not required
+- Replaced Framebuffer connector-type DisplayPort bits `00 04 00 00` with HDMI bits `00 08 00 00`; led to black screen after removing Thunderbolt Dock. New `framebuffer-con1-alldata` = `01050A00 00080000 87010000`.
+- Reverted VoodooI2C kext from 2.7.1 to 2.7; caused bootloop.
+
 #### (26/09/22) - Cleaned up Repository
 
 ##### Changes
@@ -65,7 +73,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 - Renamed SSDTs and added Descriptions
 - Removed Brightness Keys SSDT Patches (Using BrightnessKeys Kext)
 - Enabled Brightness Smoother in Display Device Properties
-- Merged and renamed I2C, THunderbolt and CPU SSDT Patches
+- Merged and renamed I2C, Thunderbolt and CPU SSDT Patches
 - Added USBWakeFixup Kext
 
 #### (15/09/22) - Updated to OpenCore 0.8.4 and macOS 12.6, Updated BIOS Advanced Settings, Fixed Thunderbolt 3 Hotplug & Wake from Sleep, Re-enabled Touchscreen Patch.
