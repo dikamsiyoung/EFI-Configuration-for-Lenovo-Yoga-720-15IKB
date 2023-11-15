@@ -143,7 +143,7 @@ I have linked each individual guides to the OS names highlighted. Please go thro
 At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a real Mac or a macOS virtual machine.
 
 ### Configuring your EFI Folder
-Clone this repository, unzip the file and copy the EFI folder of your preferred macOS version to your newly created EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
+Clone this repository, unzip the file and copy the EFI folder to your newly created EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
 
 Download [MountEFI](https://github.com/corpnewt/MountEFI) and [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/) if you haven't. OpenCore Configurator is an alternative to [ProperTree](https://github.com/corpnewt/ProperTree) which provides easy-to-use GUI however, do not use it to download/update kexts. Simply copy and replace the particular kext in `EFI\OC\Kexts`. 
 
