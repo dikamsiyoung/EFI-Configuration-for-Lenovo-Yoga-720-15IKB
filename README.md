@@ -107,7 +107,7 @@ Successfully installed macOS Monterey with most features working. However, Conti
 - Removed `FakePCIID.kext` and `FakePCIID_Intel_HDMI_Audio.kext`.
 
 # Installation
-This is guide is provided for educational purposes and is based off numerous contributions by outstanding developers. If you are new to Hackintosh and OpenCore, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
+This guide is provided for educational purposes and is based off numerous contributions by outstanding developers. If you are new to Hackintosh and OpenCore, please read through the entire [OpenCore macOS Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/). I shall be making references to several portions of it. 
 
 >  All disclaimers in the OpenCore Guide and any other guide in this post duly apply.
 
