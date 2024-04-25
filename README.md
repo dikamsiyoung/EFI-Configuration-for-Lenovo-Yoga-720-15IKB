@@ -140,7 +140,7 @@ Also read up on these.
 You can prepare the USB installer using [macOS](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html), [Windows](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/winblows-install.html#downloading-macos), or [Linux](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/linux-install.html). 
 I have linked each individual guides to the OS names highlighted. Please go through the guide for your preferred OS. I recommend using a real Mac or a macOS virtual machine to create the installer in order to follow conveniently with this guide. 
 
-At this point, you have created a macOS Big Sur USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a real Mac or a macOS virtual machine.
+At this point, you have created a macOS USB Installer. Now, you'd need to make it bootable. You'd also need to continue the rest of this guide on a real Mac or a macOS virtual machine.
 
 ### Configuring your EFI Folder
 Clone this repository, unzip the file and copy the EFI folder to your newly created EFI partition. This EFI is pretty much ready to go, however a few things need to be set before you are ready for installation and after you've installed macOS.  
