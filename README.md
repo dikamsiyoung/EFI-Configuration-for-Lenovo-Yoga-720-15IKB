@@ -34,7 +34,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 |  |  |
 | ---| --- |
 | ✅ | OpenCore v0.8.8 |
-| ✅ | macOS 13.6 |
+| ✅ | macOS 13.6 Ventura |
 | ✅ | Apple Power Management |
 | ✅ | Sleep, Wake and Hibernate |
 | ✅ | Native macOS USB-C & Thunderbolt 3 (Hotplug & Wake) |
