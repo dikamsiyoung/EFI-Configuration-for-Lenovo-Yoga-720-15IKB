@@ -33,7 +33,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 ### Features
 |  |  |
 | ---| --- |
-| ✅ | OpenCore v0.8.8 |
+| ✅ | OpenCore v0.9.9 |
 | ✅ | macOS 13.6 Ventura |
 | ✅ | Apple Power Management |
 | ✅ | Sleep, Wake and Hibernate |
@@ -58,6 +58,11 @@ Provided in this repository are EFI configurations for installing other macOS on
 | ❌ | Fingerprint Reader |
 
 # Updates
+
+#### (28/01/23) - Updated to OpenCore 0.9.9 and moacOS Ventura 13.6.6
+
+##### Changes
+- Replaced Voodoo kexts with v2.6.5. Stylus pen stopped working after update to v2.7+
 
 #### (28/01/23) - Updated to OpenCore 0.8.8 and moacOS Ventura 13.2
 
