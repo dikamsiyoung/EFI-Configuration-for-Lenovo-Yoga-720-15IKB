@@ -59,12 +59,12 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
-#### (08/05/24) - Updated to OpenCore 0.9.9 and moacOS Ventura 13.6.6
+#### (08/05/24) - Updated to OpenCore 0.9.9 and macOS Ventura 13.6.6
 
 ##### Changes
 - Replaced Voodoo kexts with v2.6.5. Stylus pen stopped working after update to v2.7+
 
-#### (28/01/23) - Updated to OpenCore 0.8.8 and moacOS Ventura 13.2
+#### (28/01/23) - Updated to OpenCore 0.8.8 and macOS Ventura 13.2
 
 ##### Changes
 - Renamed folder to `EFI`. EFI Config should work with both Monterey & Ventura.
