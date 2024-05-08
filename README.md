@@ -23,7 +23,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 | **Renderer** | NVIDIA GTX 1050 (2GB VRAM) |
 | **RAM** | 16GB DDR4 (Stock) |
 | **Internal Display** | 4K UHD @60Hz with Touchscreen & Pen |
-| **Storage** | 1TB WD_Black SN750 NVMe SSD (Replacement) |
+| **Storage** | 1TB WD Black SN750 NVMe SSD (Replacement) |
 | **Thunderbolt** | Intel JHL6540 Alpine Ridge |
 | **Audio** | Realtek ALC236 |
 | **WLAN + Bluetooth** | Fenvi BCM94360NG Wireless AC (Replacement) |
