@@ -59,7 +59,7 @@ Provided in this repository are EFI configurations for installing other macOS on
 
 # Updates
 
-#### (08/05/24) - Updated to OpenCore 0.9.9 and macOS Ventura 13.6.6
+#### (08/05/24) - Updated macOS Ventura 13.6.6
 
 ##### Changes
 - Replaced Voodoo kexts with v2.6.5. Stylus pen stopped working after update to v2.7+
