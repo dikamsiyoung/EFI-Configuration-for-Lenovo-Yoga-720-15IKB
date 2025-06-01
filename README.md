@@ -5,7 +5,7 @@
 # Introduction
 🔶 This repository is now deprecated as Intel 7th Gen processors have reach their end-of-life for Apple support. Thank you for showing interest and appreciating this project. See you in the next one 🔶
 
-Provided in this repository are EFI configurations for installing other macOS on Lenovo Yoga 720-15IKB using OpenCore. This EFI repository has been optimized to run macOS Monterey and Ventura.
+Provided in this repository are EFI configurations for installing macOS on Lenovo Yoga 720-15IKB using OpenCore. This EFI repository has been optimized to run macOS Monterey and Ventura.
 
 ###
 ###
