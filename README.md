@@ -191,7 +191,7 @@ Restart the computer and press `F2` to boot to your BIOS Configuration. Use the 
 | **Intel SGX** | *Software-Controlled* |
 | **SATA Mode** | *AHCI* |
 | **Intel Virtualization** | *Enabled* |
-| **THunderbolt Device Boot** | *Disable* |
+| **Thunderbolt Device Boot** | *Disable* |
 
 Now you are ready to begin the installation.
 
